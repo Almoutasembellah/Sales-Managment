@@ -27,6 +27,7 @@ namespace Sales_Managment
             txtID.Clear();
             txtID.Clear();
             btnAdd.Enabled = true;
+            gbxNavigation.Enabled = false;
 
         }
         void navigation(int index)
@@ -71,6 +72,8 @@ namespace Sales_Managment
         private void btnAdd_Click(object sender, EventArgs e)
         {
             btnNew.Enabled = true;
+            btnAdd.Enabled = false;
+            gbxNavigation.Enabled = true;
             if (cbxType.Items.Count <=0)
             {
                 MessageBox.Show("من فضلك ادخل الانواع اولا");

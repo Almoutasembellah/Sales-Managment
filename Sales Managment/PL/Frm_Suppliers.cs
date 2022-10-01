@@ -38,6 +38,7 @@ namespace Sales_Managment
             btnNew.Enabled = false;
             btnEdit.Enabled = true;
             btnDelete.Enabled = true;
+            grbNAVIGATION.Enabled = false;
 
         }
         void navigation(int index)
@@ -193,6 +194,9 @@ namespace Sales_Managment
                     MessageBox.Show("تمت الإضافة بنجاح", "عملية الإضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
                   
                 }
+                btnNew.Enabled = true;
+                grbNAVIGATION.Enabled = true;
+                btnSave.Enabled = false;
             }
             catch
             {

@@ -36,7 +36,7 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteAll = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grbNAVIGATION = new System.Windows.Forms.GroupBox();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
@@ -56,7 +56,7 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grbNAVIGATION.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).BeginInit();
             this.SuspendLayout();
@@ -156,19 +156,19 @@
             this.btnDeleteAll.Text = "عرض الموردين للبحث";
             this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
-            // groupBox2
+            // grbNAVIGATION
             // 
-            this.groupBox2.Controls.Add(this.btnNext);
-            this.groupBox2.Controls.Add(this.btnPrev);
-            this.groupBox2.Controls.Add(this.btnFirst);
-            this.groupBox2.Controls.Add(this.btnLast);
-            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(237, 209);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(368, 79);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "اسهم التنقل";
+            this.grbNAVIGATION.Controls.Add(this.btnNext);
+            this.grbNAVIGATION.Controls.Add(this.btnPrev);
+            this.grbNAVIGATION.Controls.Add(this.btnFirst);
+            this.grbNAVIGATION.Controls.Add(this.btnLast);
+            this.grbNAVIGATION.ForeColor = System.Drawing.Color.Blue;
+            this.grbNAVIGATION.Location = new System.Drawing.Point(237, 209);
+            this.grbNAVIGATION.Name = "grbNAVIGATION";
+            this.grbNAVIGATION.Size = new System.Drawing.Size(368, 79);
+            this.grbNAVIGATION.TabIndex = 17;
+            this.grbNAVIGATION.TabStop = false;
+            this.grbNAVIGATION.Text = "اسهم التنقل";
             // 
             // btnNext
             // 
@@ -224,7 +224,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Picture_customer);
             this.groupBox1.Controls.Add(this.btnDeleteAll);
-            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.grbNAVIGATION);
             this.groupBox1.Controls.Add(this.txtNotes);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtPhone);
@@ -395,7 +395,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Suppliers_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Suppliers_Load);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.grbNAVIGATION.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).EndInit();
@@ -411,7 +411,7 @@
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnNew;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grbNAVIGATION;
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnFirst;

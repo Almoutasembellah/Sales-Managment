@@ -86,5 +86,16 @@ namespace Sales_Managment
             Frm_Sales frm = new Frm_Sales();
             frm.ShowDialog();
         }
+
+        private void barButtonItem29_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            PL.FRM_Categories frm = new PL.FRM_Categories();
+            frm.ShowDialog();
+
+                
+            
+            
+        }
     }
 }

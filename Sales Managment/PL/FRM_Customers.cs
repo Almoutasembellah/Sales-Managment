@@ -39,6 +39,7 @@ namespace Sales_Managment.PL
             btnNew.Enabled = false;
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
+            gbxNavigation.Enabled = false;
 
         }
         void navigation(int index)
@@ -204,6 +205,9 @@ namespace Sales_Managment.PL
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
+            btnSave.Enabled = false;
+            btnNew.Enabled = true;
+            gbxNavigation.Enabled = true;
             try
             {
                 if (txtName.Text == String.Empty)

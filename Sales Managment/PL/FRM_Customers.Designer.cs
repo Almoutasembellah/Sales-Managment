@@ -41,7 +41,7 @@ namespace Sales_Managment.PL
             this.label6 = new System.Windows.Forms.Label();
             this.Picture_customer = new System.Windows.Forms.PictureBox();
             this.btnDeleteAll = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxNavigation = new System.Windows.Forms.GroupBox();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
@@ -59,7 +59,7 @@ namespace Sales_Managment.PL
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbxNavigation.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -149,7 +149,7 @@ namespace Sales_Managment.PL
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Picture_customer);
             this.groupBox1.Controls.Add(this.btnDeleteAll);
-            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.gbxNavigation);
             this.groupBox1.Controls.Add(this.txtNotes);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtPhone);
@@ -213,19 +213,19 @@ namespace Sales_Managment.PL
             this.btnDeleteAll.Text = "عرض العملاء للبحث";
             this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click_1);
             // 
-            // groupBox2
+            // gbxNavigation
             // 
-            this.groupBox2.Controls.Add(this.btnNext);
-            this.groupBox2.Controls.Add(this.btnPrev);
-            this.groupBox2.Controls.Add(this.btnFirst);
-            this.groupBox2.Controls.Add(this.btnLast);
-            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(237, 209);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(368, 79);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "اسهم التنقل";
+            this.gbxNavigation.Controls.Add(this.btnNext);
+            this.gbxNavigation.Controls.Add(this.btnPrev);
+            this.gbxNavigation.Controls.Add(this.btnFirst);
+            this.gbxNavigation.Controls.Add(this.btnLast);
+            this.gbxNavigation.ForeColor = System.Drawing.Color.Blue;
+            this.gbxNavigation.Location = new System.Drawing.Point(237, 209);
+            this.gbxNavigation.Name = "gbxNavigation";
+            this.gbxNavigation.Size = new System.Drawing.Size(368, 79);
+            this.gbxNavigation.TabIndex = 17;
+            this.gbxNavigation.TabStop = false;
+            this.gbxNavigation.Text = "اسهم التنقل";
             // 
             // btnNext
             // 
@@ -394,7 +394,7 @@ namespace Sales_Managment.PL
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.gbxNavigation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -412,7 +412,7 @@ namespace Sales_Managment.PL
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.PictureBox Picture_customer;
         private DevExpress.XtraEditors.SimpleButton btnDeleteAll;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxNavigation;
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnFirst;

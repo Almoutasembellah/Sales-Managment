@@ -60,11 +60,13 @@
             this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             this.ا = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup30 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -136,10 +138,11 @@
             this.barButtonItem25,
             this.barButtonItem26,
             this.barButtonItem27,
-            this.barButtonItem28});
+            this.barButtonItem28,
+            this.barButtonItem29});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.ribbonControl1.MaxItemId = 31;
+            this.ribbonControl1.MaxItemId = 32;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ا,
@@ -151,7 +154,7 @@
             this.ribbonPage6,
             this.ribbonPage7,
             this.ribbonPage8});
-            this.ribbonControl1.Size = new System.Drawing.Size(1275, 212);
+            this.ribbonControl1.Size = new System.Drawing.Size(1275, 208);
             // 
             // barButtonItem1
             // 
@@ -690,6 +693,27 @@
             this.barButtonItem28.Name = "barButtonItem28";
             this.barButtonItem28.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
+            // barButtonItem29
+            // 
+            this.barButtonItem29.Caption = "إضافة صنف جديد";
+            this.barButtonItem29.Id = 31;
+            this.barButtonItem29.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem29.ImageOptions.SvgImage")));
+            this.barButtonItem29.ItemAppearance.Hovered.Font = new System.Drawing.Font("Droid Arabic Kufi", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barButtonItem29.ItemAppearance.Hovered.Options.UseFont = true;
+            this.barButtonItem29.ItemAppearance.Hovered.Options.UseTextOptions = true;
+            this.barButtonItem29.ItemAppearance.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            this.barButtonItem29.ItemAppearance.Normal.Font = new System.Drawing.Font("Droid Arabic Kufi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barButtonItem29.ItemAppearance.Normal.Options.UseFont = true;
+            this.barButtonItem29.ItemAppearance.Normal.Options.UseTextOptions = true;
+            this.barButtonItem29.ItemAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            this.barButtonItem29.ItemAppearance.Pressed.Font = new System.Drawing.Font("Droid Arabic Kufi", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barButtonItem29.ItemAppearance.Pressed.Options.UseFont = true;
+            this.barButtonItem29.ItemAppearance.Pressed.Options.UseTextOptions = true;
+            this.barButtonItem29.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            this.barButtonItem29.Name = "barButtonItem29";
+            this.barButtonItem29.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem29.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem29_ItemClick);
+            // 
             // ا
             // 
             this.ا.Appearance.Font = new System.Drawing.Font("Droid Arabic Kufi", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -698,7 +722,8 @@
             this.ribbonPageGroup1,
             this.ribbonPageGroup11,
             this.ribbonPageGroup12,
-            this.ribbonPageGroup13});
+            this.ribbonPageGroup13,
+            this.ribbonPageGroup30});
             this.ا.Name = "ا";
             this.ا.Text = "اعدادت";
             // 
@@ -729,6 +754,14 @@
             this.ribbonPageGroup13.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            // 
+            // ribbonPageGroup30
+            // 
+            this.ribbonPageGroup30.AllowTextClipping = false;
+            this.ribbonPageGroup30.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonPageGroup30.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPageGroup30.ImageOptions.SvgImage")));
+            this.ribbonPageGroup30.ItemLinks.Add(this.barButtonItem29);
+            this.ribbonPageGroup30.Name = "ribbonPageGroup30";
             // 
             // ribbonPage1
             // 
@@ -1091,6 +1124,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem27;
         private DevExpress.XtraBars.BarButtonItem barButtonItem28;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup29;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem29;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup30;
     }
 }
 

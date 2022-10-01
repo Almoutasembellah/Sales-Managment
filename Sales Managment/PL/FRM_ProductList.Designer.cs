@@ -1,7 +1,7 @@
 ﻿
 namespace Sales_Managment.PL
 {
-    partial class Frm_SuppliersList
+    partial class FRM_ProductList
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,28 @@ namespace Sales_Managment.PL
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.label1 = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DarkOrchid;
+            this.label1.Location = new System.Drawing.Point(273, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 32);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ابحث هنــــــــــــــــا";
+            // 
             // textSearch
             // 
-            this.textSearch.Location = new System.Drawing.Point(248, 12);
+            this.textSearch.Location = new System.Drawing.Point(430, 12);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(297, 40);
-            this.textSearch.TabIndex = 3;
+            this.textSearch.TabIndex = 6;
             this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // dataGridView1
@@ -55,35 +65,25 @@ namespace Sales_Managment.PL
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 58);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(641, 504);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.Size = new System.Drawing.Size(1025, 558);
+            this.dataGridView1.TabIndex = 5;
             // 
-            // label1
+            // FRM_ProductList
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.label1.Location = new System.Drawing.Point(91, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 32);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ابحث هنــــــــــــــــا";
-            // 
-            // Frm_SuppliersList
-            // 
-            this.Appearance.BackColor = System.Drawing.Color.LightCoral;
-            this.Appearance.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Appearance.ForeColor = System.Drawing.Color.Black;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(641, 567);
+            this.ClientSize = new System.Drawing.Size(1025, 616);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textSearch);
             this.Controls.Add(this.dataGridView1);
@@ -91,12 +91,12 @@ namespace Sales_Managment.PL
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_SuppliersList";
+            this.Name = "FRM_ProductList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "إدارة الموردين";
-            this.Load += new System.EventHandler(this.Frm_SuppliersList_Load);
+            this.Text = "قائمة المنتجات";
+            this.Load += new System.EventHandler(this.FRM_ProductList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -105,8 +105,8 @@ namespace Sales_Managment.PL
 
         #endregion
 
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
     }
 }

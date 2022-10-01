@@ -35,7 +35,7 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxNavigation = new System.Windows.Forms.GroupBox();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
@@ -53,7 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbxNavigation.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPrice)).BeginInit();
             this.SuspendLayout();
@@ -139,19 +139,19 @@
             this.btnNew.Text = "جديد";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // groupBox2
+            // gbxNavigation
             // 
-            this.groupBox2.Controls.Add(this.btnNext);
-            this.groupBox2.Controls.Add(this.btnPrev);
-            this.groupBox2.Controls.Add(this.btnFirst);
-            this.groupBox2.Controls.Add(this.btnLast);
-            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(7, 217);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(368, 79);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "اسهم التنقل";
+            this.gbxNavigation.Controls.Add(this.btnNext);
+            this.gbxNavigation.Controls.Add(this.btnPrev);
+            this.gbxNavigation.Controls.Add(this.btnFirst);
+            this.gbxNavigation.Controls.Add(this.btnLast);
+            this.gbxNavigation.ForeColor = System.Drawing.Color.Blue;
+            this.gbxNavigation.Location = new System.Drawing.Point(7, 217);
+            this.gbxNavigation.Name = "gbxNavigation";
+            this.gbxNavigation.Size = new System.Drawing.Size(368, 79);
+            this.gbxNavigation.TabIndex = 23;
+            this.gbxNavigation.TabStop = false;
+            this.gbxNavigation.Text = "اسهم التنقل";
             // 
             // btnNext
             // 
@@ -195,7 +195,7 @@
             this.btnLast.Appearance.Options.UseFont = true;
             this.btnLast.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLast.ImageOptions.Image")));
             this.btnLast.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnLast.Location = new System.Drawing.Point(279, 29);
+            this.btnLast.Location = new System.Drawing.Point(269, 29);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(70, 39);
             this.btnLast.TabIndex = 11;
@@ -349,7 +349,7 @@
             this.ClientSize = new System.Drawing.Size(762, 442);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbxNavigation);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Droid Arabic Kufi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -362,7 +362,7 @@
             this.Text = "ادارة المصروفات";
             this.Load += new System.EventHandler(this.Frm_Deserved_Load);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.gbxNavigation.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPrice)).EndInit();
@@ -378,7 +378,7 @@
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnNew;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxNavigation;
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnFirst;

@@ -113,6 +113,7 @@
   <ItemGroup>
     <Compile Include="BL\Cls_Customers.cs" />
     <Compile Include="BL\Cls_Expenses.cs" />
+    <Compile Include="BL\Cls_Products.cs" />
     <Compile Include="BL\Cls_Suppliers.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
     <Compile Include="Database.cs" />
@@ -128,6 +129,12 @@
     <Compile Include="PL\Frm_Buy.Designer.cs">
       <DependentUpon>Frm_Buy.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FRM_BuyOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_BuyOrder.Designer.cs">
+      <DependentUpon>FRM_BuyOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Frm_BuyQty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +146,12 @@
     </Compile>
     <Compile Include="PL\Frm_BuyReport.Designer.cs">
       <DependentUpon>Frm_BuyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Categories.Designer.cs">
+      <DependentUpon>FRM_Categories.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FRM_Customers.cs">
       <SubType>Form</SubType>
@@ -193,6 +206,12 @@
     </Compile>
     <Compile Include="PL\Frm_Print.Designer.cs">
       <DependentUpon>Frm_Print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_ProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_ProductList.Designer.cs">
+      <DependentUpon>FRM_ProductList.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Frm_Products.cs">
       <SubType>Form</SubType>
@@ -256,11 +275,17 @@
     <EmbeddedResource Include="PL\Frm_Buy.resx">
       <DependentUpon>Frm_Buy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_BuyOrder.resx">
+      <DependentUpon>FRM_BuyOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Frm_BuyQty.resx">
       <DependentUpon>Frm_BuyQty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Frm_BuyReport.resx">
       <DependentUpon>Frm_BuyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Categories.resx">
+      <DependentUpon>FRM_Categories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_Customers.resx">
       <DependentUpon>FRM_Customers.cs</DependentUpon>
@@ -288,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Frm_Print.resx">
       <DependentUpon>Frm_Print.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_ProductList.resx">
+      <DependentUpon>FRM_ProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Frm_Products.resx">
       <DependentUpon>Frm_Products.cs</DependentUpon>
