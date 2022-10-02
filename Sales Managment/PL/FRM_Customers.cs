@@ -246,7 +246,7 @@ namespace Sales_Managment.PL
                     Picture_customer.Image.Save(ms, Picture_customer.Image.RawFormat);
                     img = ms.ToArray();
 
-                    customers.ADD_Customers(txtName.Text, txtPhone.Text, txtNatiID.Text, txtAddress.Text, txtNotes.Text, img, "without_image", Convert.ToInt32(txtID.Text));
+                    customers.ADD_Customers(txtName.Text, txtPhone.Text, txtNatiID.Text, txtAddress.Text, txtNotes.Text, img, "with_image", Convert.ToInt32(txtID.Text));
 
                     MessageBox.Show("تمت الإضافة بنجاح", "عملية الإضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -383,6 +383,16 @@ namespace Sales_Managment.PL
             if (e.KeyCode == Keys.Enter)
             {
                 txtNotes.Focus();
+            }
+        }
+
+        private void Picture_customer_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "صور الملفات |*.JPG;*.PNG;*.BMP;*.GIF";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                Picture_customer.Image = Image.FromFile(opf.FileName);
             }
         }
 

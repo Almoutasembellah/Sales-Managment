@@ -21,13 +21,18 @@ namespace Sales_Managment.PL
 
         private void Frm_SuppliersList_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = suppliers.Get_AllSup_info();
-            dataGridView1.Columns[6].Visible = false;
+            dgvSuppliers.DataSource = suppliers.Get_AllSup_info();
+            dgvSuppliers.Columns[6].Visible = false;
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = suppliers.Search_suppliers(textSearch.Text);
+            dgvSuppliers.DataSource = suppliers.Search_suppliers(textSearch.Text);
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

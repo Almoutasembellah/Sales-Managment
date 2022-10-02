@@ -59,7 +59,7 @@ namespace Sales_Managment
 
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Frm_Buy frm = new Frm_Buy();
+            PL.FRM_BuyOrder frm = new PL.FRM_BuyOrder();
             frm.ShowDialog();
         }
 

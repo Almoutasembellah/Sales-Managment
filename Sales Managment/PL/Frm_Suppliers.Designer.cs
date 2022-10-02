@@ -44,7 +44,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCmpID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Picture_customer = new System.Windows.Forms.PictureBox();
+            this.Picture_Suppliers = new System.Windows.Forms.PictureBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@
             this.groupBox3.SuspendLayout();
             this.grbNAVIGATION.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Suppliers)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -222,7 +222,7 @@
             // 
             this.groupBox1.Controls.Add(this.txtCmpID);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.Picture_customer);
+            this.groupBox1.Controls.Add(this.Picture_Suppliers);
             this.groupBox1.Controls.Add(this.btnDeleteAll);
             this.groupBox1.Controls.Add(this.grbNAVIGATION);
             this.groupBox1.Controls.Add(this.txtNotes);
@@ -262,18 +262,19 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "الرقم الضريبي";
             // 
-            // Picture_customer
+            // Picture_Suppliers
             // 
-            this.Picture_customer.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Picture_customer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Picture_customer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Picture_customer.Location = new System.Drawing.Point(7, 17);
-            this.Picture_customer.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            this.Picture_customer.Name = "Picture_customer";
-            this.Picture_customer.Size = new System.Drawing.Size(187, 194);
-            this.Picture_customer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Picture_customer.TabIndex = 14;
-            this.Picture_customer.TabStop = false;
+            this.Picture_Suppliers.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Picture_Suppliers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Picture_Suppliers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Picture_Suppliers.Location = new System.Drawing.Point(7, 17);
+            this.Picture_Suppliers.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            this.Picture_Suppliers.Name = "Picture_Suppliers";
+            this.Picture_Suppliers.Size = new System.Drawing.Size(187, 194);
+            this.Picture_Suppliers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_Suppliers.TabIndex = 14;
+            this.Picture_Suppliers.TabStop = false;
+            this.Picture_Suppliers.Click += new System.EventHandler(this.Picture_customer_Click);
             // 
             // txtNotes
             // 
@@ -398,7 +399,7 @@
             this.grbNAVIGATION.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Suppliers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,7 +428,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.PictureBox Picture_customer;
+        public System.Windows.Forms.PictureBox Picture_Suppliers;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.TextBox txtCmpID;
         private System.Windows.Forms.Label label6;

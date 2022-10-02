@@ -28,7 +28,7 @@ namespace Sales_Managment
             txtPhone.Clear();
             txtAddress.Clear();
             txtCmpID.Clear();
-            Picture_customer.Image = null;
+            Picture_Suppliers.Image = null;
             txtName.Enabled = true;
             txtPhone.Enabled = true;
             txtCmpID.Enabled = true;
@@ -45,7 +45,7 @@ namespace Sales_Managment
         {
             try
             {
-                Picture_customer.Image = null;
+                Picture_Suppliers.Image = null;
 
                 DataRowCollection DRC = suppliers.Get_AllSup_info().Rows;
                 ID = Convert.ToInt32(DRC[index][0]);
@@ -57,7 +57,7 @@ namespace Sales_Managment
                 txtNotes.Text = DRC[index][5].ToString();
                 byte[] picture = (byte[])DRC[index][6];
                 MemoryStream ms = new MemoryStream(picture);
-                Picture_customer.Image = Image.FromStream(ms);
+                Picture_Suppliers.Image = Image.FromStream(ms);
             }
             catch
             {
@@ -80,7 +80,7 @@ namespace Sales_Managment
                     MessageBox.Show("العميل المراد تعديله غير موجود");
                 }
                 byte[] img;
-                if (Picture_customer.Image == null)
+                if (Picture_Suppliers.Image == null)
                 {
                     //اعطاء قيمة للصورة هنا من اجل التحايل فقط لان القيمة دي مش هتتبعت بناءا علي الشرط اللي في الاجراء المخزن
                     img = new byte[16];
@@ -91,7 +91,7 @@ namespace Sales_Managment
                 else
                 {
                     MemoryStream ms = new MemoryStream();
-                    Picture_customer.Image.Save(ms, Picture_customer.Image.RawFormat);
+                    Picture_Suppliers.Image.Save(ms, Picture_Suppliers.Image.RawFormat);
                     img = ms.ToArray();
 
                     suppliers.Edit_Suppliers(txtName.Text, txtPhone.Text, txtCmpID.Text, txtAddress.Text, txtNotes.Text, img, "without_image", ID);
@@ -174,7 +174,7 @@ namespace Sales_Managment
           
 
                 byte[] img;
-                if (Picture_customer.Image == null)
+                if (Picture_Suppliers.Image == null)
                 {
                     //اعطاء قيمة للصورة هنا من اجل التحايل فقط لان القيمة دي مش هتتبعت بناءا علي الشرط اللي في الاجراء المخزن
                     img = new byte[16];
@@ -186,10 +186,10 @@ namespace Sales_Managment
                 else
                 {
                     MemoryStream ms = new MemoryStream();
-                    Picture_customer.Image.Save(ms, Picture_customer.Image.RawFormat);
+                    Picture_Suppliers.Image.Save(ms, Picture_Suppliers.Image.RawFormat);
                     img = ms.ToArray();
 
-                    suppliers.ADD_Suppliers(txtName.Text, txtPhone.Text, txtCmpID.Text, txtAddress.Text, txtNotes.Text, img, "without_image", Convert.ToInt32(txtID.Text));
+                    suppliers.ADD_Suppliers(txtName.Text, txtPhone.Text, txtCmpID.Text, txtAddress.Text, txtNotes.Text, img, "with_image", Convert.ToInt32(txtID.Text));
 
                     MessageBox.Show("تمت الإضافة بنجاح", "عملية الإضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
                   
@@ -290,6 +290,16 @@ namespace Sales_Managment
             if (e.KeyCode == Keys.Enter)
             {
                 txtNotes.Focus();
+            }
+        }
+
+        private void Picture_customer_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "صور الملفات |*.JPG;*.PNG;*.BMP;*.GIF";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                Picture_Suppliers.Image = Image.FromFile(opf.FileName);
             }
         }
 

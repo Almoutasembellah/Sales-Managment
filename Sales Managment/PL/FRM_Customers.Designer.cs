@@ -199,6 +199,7 @@ namespace Sales_Managment.PL
             this.Picture_customer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Picture_customer.TabIndex = 14;
             this.Picture_customer.TabStop = false;
+            this.Picture_customer.Click += new System.EventHandler(this.Picture_customer_Click);
             // 
             // btnDeleteAll
             // 

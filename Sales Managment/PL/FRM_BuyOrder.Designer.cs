@@ -29,11 +29,22 @@ namespace Sales_Managment.PL
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_BuyOrder));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dtPayTime = new System.Windows.Forms.DateTimePicker();
+            this.btnPayInvoice = new DevExpress.XtraEditors.SimpleButton();
+            this.rdbtnAGEL = new System.Windows.Forms.RadioButton();
+            this.rdbtnCash = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblProductCount = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtUNIT = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnprdSelectLIST = new DevExpress.XtraEditors.SimpleButton();
             this.txtPrdTotalAmount = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtPrdDixcount = new System.Windows.Forms.TextBox();
@@ -53,15 +64,15 @@ namespace Sales_Managment.PL
             this.textInvoiceSum = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSelectSup = new System.Windows.Forms.Button();
             this.Picture_customer = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtAdress = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.text_CUSTO_CODE = new System.Windows.Forms.TextBox();
-            this.textMail = new System.Windows.Forms.TextBox();
+            this.txtSupCmpID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textPhone = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textLname = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textNname = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -73,18 +84,7 @@ namespace Sales_Managment.PL
             this.textinvoice_descr = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textInvoice_NUM = new System.Windows.Forms.TextBox();
-            this.txtUNIT = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnNewBuy = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.rdbtnCash = new System.Windows.Forms.RadioButton();
-            this.rdbtnAGEL = new System.Windows.Forms.RadioButton();
-            this.dtPayTime = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lblProductCount = new System.Windows.Forms.Label();
+            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -97,7 +97,7 @@ namespace Sales_Managment.PL
             // 
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.dtPayTime);
-            this.groupBox4.Controls.Add(this.simpleButton2);
+            this.groupBox4.Controls.Add(this.btnPayInvoice);
             this.groupBox4.Controls.Add(this.rdbtnAGEL);
             this.groupBox4.Controls.Add(this.rdbtnCash);
             this.groupBox4.Font = new System.Drawing.Font("Droid Arabic Kufi", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,8 +110,66 @@ namespace Sales_Managment.PL
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "الخيارات المتاحة";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(764, 62);
+            this.label19.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(101, 28);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "تاريخ الدفع:";
+            // 
+            // dtPayTime
+            // 
+            this.dtPayTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPayTime.Location = new System.Drawing.Point(579, 62);
+            this.dtPayTime.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dtPayTime.Name = "dtPayTime";
+            this.dtPayTime.RightToLeftLayout = true;
+            this.dtPayTime.Size = new System.Drawing.Size(175, 40);
+            this.dtPayTime.TabIndex = 18;
+            // 
+            // btnPayInvoice
+            // 
+            this.btnPayInvoice.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayInvoice.Appearance.Options.UseFont = true;
+            this.btnPayInvoice.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
+            this.btnPayInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPayInvoice.ImageOptions.SvgImage")));
+            this.btnPayInvoice.Location = new System.Drawing.Point(13, 31);
+            this.btnPayInvoice.Name = "btnPayInvoice";
+            this.btnPayInvoice.Size = new System.Drawing.Size(187, 59);
+            this.btnPayInvoice.TabIndex = 15;
+            this.btnPayInvoice.Text = "ادفع";
+            // 
+            // rdbtnAGEL
+            // 
+            this.rdbtnAGEL.AutoSize = true;
+            this.rdbtnAGEL.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbtnAGEL.Location = new System.Drawing.Point(881, 58);
+            this.rdbtnAGEL.Name = "rdbtnAGEL";
+            this.rdbtnAGEL.Size = new System.Drawing.Size(104, 32);
+            this.rdbtnAGEL.TabIndex = 17;
+            this.rdbtnAGEL.TabStop = true;
+            this.rdbtnAGEL.Text = "شراء آجل:";
+            this.rdbtnAGEL.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnCash
+            // 
+            this.rdbtnCash.AutoSize = true;
+            this.rdbtnCash.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbtnCash.Location = new System.Drawing.Point(881, 28);
+            this.rdbtnCash.Name = "rdbtnCash";
+            this.rdbtnCash.Size = new System.Drawing.Size(114, 32);
+            this.rdbtnCash.TabIndex = 16;
+            this.rdbtnCash.TabStop = true;
+            this.rdbtnCash.Text = "شراء كاش:";
+            this.rdbtnCash.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnNew);
             this.groupBox3.Controls.Add(this.lblProductCount);
             this.groupBox3.Controls.Add(this.label21);
             this.groupBox3.Controls.Add(this.txtBarcode);
@@ -119,7 +177,7 @@ namespace Sales_Managment.PL
             this.groupBox3.Controls.Add(this.txtUNIT);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.btnNewBuy);
+            this.groupBox3.Controls.Add(this.btnprdSelectLIST);
             this.groupBox3.Controls.Add(this.txtPrdTotalAmount);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.txtPrdDixcount);
@@ -148,6 +206,71 @@ namespace Sales_Managment.PL
             this.groupBox3.Text = "لائحة المنتجات";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // lblProductCount
+            // 
+            this.lblProductCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblProductCount.Location = new System.Drawing.Point(1019, 229);
+            this.lblProductCount.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblProductCount.Name = "lblProductCount";
+            this.lblProductCount.Size = new System.Drawing.Size(107, 41);
+            this.lblProductCount.TabIndex = 29;
+            this.lblProductCount.Text = "0";
+            this.lblProductCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(996, 177);
+            this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(166, 41);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "عدد أصناف الفاتورة:";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Location = new System.Drawing.Point(1004, 123);
+            this.txtBarcode.MaxLength = 15;
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(145, 36);
+            this.txtBarcode.TabIndex = 28;
+            this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Yellow;
+            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label20.Font = new System.Drawing.Font("Droid Arabic Kufi", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Blue;
+            this.label20.Location = new System.Drawing.Point(1004, 93);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(145, 33);
+            this.label20.TabIndex = 27;
+            this.label20.Text = "ادخل الباركود";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtUNIT
+            // 
+            this.txtUNIT.Location = new System.Drawing.Point(440, 53);
+            this.txtUNIT.MaxLength = 15;
+            this.txtUNIT.Name = "txtUNIT";
+            this.txtUNIT.Size = new System.Drawing.Size(103, 36);
+            this.txtUNIT.TabIndex = 26;
+            this.txtUNIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Yellow;
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label18.Font = new System.Drawing.Font("Droid Arabic Kufi", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Blue;
+            this.label18.Location = new System.Drawing.Point(440, 23);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(103, 33);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "الوحدة";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Yellow;
@@ -156,10 +279,22 @@ namespace Sales_Managment.PL
             this.label17.ForeColor = System.Drawing.Color.Blue;
             this.label17.Location = new System.Drawing.Point(835, 23);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(161, 33);
+            this.label17.Size = new System.Drawing.Size(161, 32);
             this.label17.TabIndex = 24;
             this.label17.Text = "اختيار المنتج";
             this.label17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnprdSelectLIST
+            // 
+            this.btnprdSelectLIST.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnprdSelectLIST.Appearance.Options.UseFont = true;
+            this.btnprdSelectLIST.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNewBuy.ImageOptions.Image")));
+            this.btnprdSelectLIST.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnprdSelectLIST.Location = new System.Drawing.Point(835, 53);
+            this.btnprdSelectLIST.Name = "btnprdSelectLIST";
+            this.btnprdSelectLIST.Size = new System.Drawing.Size(161, 36);
+            this.btnprdSelectLIST.TabIndex = 14;
+            this.btnprdSelectLIST.Click += new System.EventHandler(this.btnNewBuy_Click);
             // 
             // txtPrdTotalAmount
             // 
@@ -320,7 +455,7 @@ namespace Sales_Managment.PL
             // 
             this.p.AutoSize = true;
             this.p.Font = new System.Drawing.Font("Droid Arabic Kufi", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p.Location = new System.Drawing.Point(305, 315);
+            this.p.Location = new System.Drawing.Point(130, 325);
             this.p.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.p.Name = "p";
             this.p.Size = new System.Drawing.Size(78, 27);
@@ -332,15 +467,7 @@ namespace Sales_Managment.PL
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 93);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 85);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -348,28 +475,30 @@ namespace Sales_Managment.PL
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(993, 200);
+            this.dataGridView1.Size = new System.Drawing.Size(993, 208);
             this.dataGridView1.TabIndex = 0;
             // 
             // textInvoiceSum
             // 
-            this.textInvoiceSum.Location = new System.Drawing.Point(16, 310);
+            this.textInvoiceSum.Font = new System.Drawing.Font("Droid Arabic Kufi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInvoiceSum.Location = new System.Drawing.Point(3, 310);
             this.textInvoiceSum.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textInvoiceSum.Multiline = true;
             this.textInvoiceSum.Name = "textInvoiceSum";
             this.textInvoiceSum.ReadOnly = true;
-            this.textInvoiceSum.Size = new System.Drawing.Size(279, 36);
+            this.textInvoiceSum.Size = new System.Drawing.Size(119, 56);
             this.textInvoiceSum.TabIndex = 1;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btnSelectSup);
             this.groupBox2.Controls.Add(this.Picture_customer);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textLname);
+            this.groupBox2.Controls.Add(this.txtAdress);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.text_CUSTO_CODE);
-            this.groupBox2.Controls.Add(this.textMail);
+            this.groupBox2.Controls.Add(this.txtSupCmpID);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textPhone);
             this.groupBox2.Controls.Add(this.label8);
@@ -390,30 +519,31 @@ namespace Sales_Managment.PL
             this.label10.Location = new System.Drawing.Point(449, 49);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 28);
+            this.label10.Size = new System.Drawing.Size(97, 28);
             this.label10.TabIndex = 16;
-            this.label10.Text = "كود العميل:";
+            this.label10.Text = "كود المورد:";
             // 
-            // button2
+            // btnSelectSup
             // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(265, 41);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 33);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "....";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSelectSup.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectSup.Location = new System.Drawing.Point(267, 44);
+            this.btnSelectSup.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnSelectSup.Name = "btnSelectSup";
+            this.btnSelectSup.Size = new System.Drawing.Size(68, 33);
+            this.btnSelectSup.TabIndex = 0;
+            this.btnSelectSup.Text = "....";
+            this.btnSelectSup.UseVisualStyleBackColor = true;
+            this.btnSelectSup.Click += new System.EventHandler(this.btnSelectSup_Click);
             // 
             // Picture_customer
             // 
             this.Picture_customer.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.Picture_customer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Picture_customer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Picture_customer.Location = new System.Drawing.Point(-132, 17);
+            this.Picture_customer.Location = new System.Drawing.Point(3, 25);
             this.Picture_customer.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Picture_customer.Name = "Picture_customer";
-            this.Picture_customer.Size = new System.Drawing.Size(387, 250);
+            this.Picture_customer.Size = new System.Drawing.Size(252, 250);
             this.Picture_customer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Picture_customer.TabIndex = 13;
             this.Picture_customer.TabStop = false;
@@ -424,9 +554,28 @@ namespace Sales_Managment.PL
             this.label5.Location = new System.Drawing.Point(449, 197);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 28);
+            this.label5.Size = new System.Drawing.Size(121, 28);
             this.label5.TabIndex = 7;
-            this.label5.Text = "الرقم القومي:";
+            this.label5.Text = "الرقم الضريبي:";
+            // 
+            // txtAdress
+            // 
+            this.txtAdress.Location = new System.Drawing.Point(267, 232);
+            this.txtAdress.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtAdress.Name = "txtAdress";
+            this.txtAdress.ReadOnly = true;
+            this.txtAdress.Size = new System.Drawing.Size(172, 36);
+            this.txtAdress.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(449, 240);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 28);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "العنوان:";
             // 
             // text_CUSTO_CODE
             // 
@@ -437,14 +586,14 @@ namespace Sales_Managment.PL
             this.text_CUSTO_CODE.Size = new System.Drawing.Size(96, 36);
             this.text_CUSTO_CODE.TabIndex = 15;
             // 
-            // textMail
+            // txtSupCmpID
             // 
-            this.textMail.Location = new System.Drawing.Point(265, 188);
-            this.textMail.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textMail.Name = "textMail";
-            this.textMail.ReadOnly = true;
-            this.textMail.Size = new System.Drawing.Size(172, 36);
-            this.textMail.TabIndex = 6;
+            this.txtSupCmpID.Location = new System.Drawing.Point(265, 188);
+            this.txtSupCmpID.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtSupCmpID.Name = "txtSupCmpID";
+            this.txtSupCmpID.ReadOnly = true;
+            this.txtSupCmpID.Size = new System.Drawing.Size(172, 36);
+            this.txtSupCmpID.TabIndex = 6;
             // 
             // label6
             // 
@@ -464,25 +613,6 @@ namespace Sales_Managment.PL
             this.textPhone.ReadOnly = true;
             this.textPhone.Size = new System.Drawing.Size(172, 36);
             this.textPhone.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(449, 240);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 28);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "العنوان:";
-            // 
-            // textLname
-            // 
-            this.textLname.Location = new System.Drawing.Point(267, 232);
-            this.textLname.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textLname.Name = "textLname";
-            this.textLname.ReadOnly = true;
-            this.textLname.Size = new System.Drawing.Size(172, 36);
-            this.textLname.TabIndex = 2;
             // 
             // label8
             // 
@@ -601,139 +731,17 @@ namespace Sales_Managment.PL
             this.textInvoice_NUM.Size = new System.Drawing.Size(237, 36);
             this.textInvoice_NUM.TabIndex = 0;
             // 
-            // txtUNIT
+            // btnNew
             // 
-            this.txtUNIT.Location = new System.Drawing.Point(440, 53);
-            this.txtUNIT.MaxLength = 15;
-            this.txtUNIT.Name = "txtUNIT";
-            this.txtUNIT.Size = new System.Drawing.Size(103, 36);
-            this.txtUNIT.TabIndex = 26;
-            this.txtUNIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Yellow;
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Font = new System.Drawing.Font("Droid Arabic Kufi", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Blue;
-            this.label18.Location = new System.Drawing.Point(440, 23);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(103, 33);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "الوحدة";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnNewBuy
-            // 
-            this.btnNewBuy.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewBuy.Appearance.Options.UseFont = true;
-            this.btnNewBuy.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnNewBuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnNewBuy.Location = new System.Drawing.Point(835, 53);
-            this.btnNewBuy.Name = "btnNewBuy";
-            this.btnNewBuy.Size = new System.Drawing.Size(161, 36);
-            this.btnNewBuy.TabIndex = 14;
-            this.btnNewBuy.Text = "شراء جديد";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(13, 31);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(187, 59);
-            this.simpleButton2.TabIndex = 15;
-            this.simpleButton2.Text = "ادفع";
-            // 
-            // rdbtnCash
-            // 
-            this.rdbtnCash.AutoSize = true;
-            this.rdbtnCash.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnCash.Location = new System.Drawing.Point(881, 28);
-            this.rdbtnCash.Name = "rdbtnCash";
-            this.rdbtnCash.Size = new System.Drawing.Size(114, 32);
-            this.rdbtnCash.TabIndex = 16;
-            this.rdbtnCash.TabStop = true;
-            this.rdbtnCash.Text = "شراء كاش:";
-            this.rdbtnCash.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnAGEL
-            // 
-            this.rdbtnAGEL.AutoSize = true;
-            this.rdbtnAGEL.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnAGEL.Location = new System.Drawing.Point(881, 58);
-            this.rdbtnAGEL.Name = "rdbtnAGEL";
-            this.rdbtnAGEL.Size = new System.Drawing.Size(104, 32);
-            this.rdbtnAGEL.TabIndex = 17;
-            this.rdbtnAGEL.TabStop = true;
-            this.rdbtnAGEL.Text = "شراء آجل:";
-            this.rdbtnAGEL.UseVisualStyleBackColor = true;
-            // 
-            // dtPayTime
-            // 
-            this.dtPayTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPayTime.Location = new System.Drawing.Point(579, 62);
-            this.dtPayTime.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.dtPayTime.Name = "dtPayTime";
-            this.dtPayTime.RightToLeftLayout = true;
-            this.dtPayTime.Size = new System.Drawing.Size(175, 40);
-            this.dtPayTime.TabIndex = 18;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(764, 62);
-            this.label19.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(101, 28);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "تاريخ الدفع:";
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.Location = new System.Drawing.Point(1004, 123);
-            this.txtBarcode.MaxLength = 15;
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(145, 36);
-            this.txtBarcode.TabIndex = 28;
-            this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.Color.Yellow;
-            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.Font = new System.Drawing.Font("Droid Arabic Kufi", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Blue;
-            this.label20.Location = new System.Drawing.Point(1004, 93);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(145, 33);
-            this.label20.TabIndex = 27;
-            this.label20.Text = "ادخل الباركود";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label21
-            // 
-            this.label21.Location = new System.Drawing.Point(996, 177);
-            this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(166, 41);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "عدد أصناف الفاتورة:";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
-            // 
-            // lblProductCount
-            // 
-            this.lblProductCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblProductCount.Location = new System.Drawing.Point(1019, 229);
-            this.lblProductCount.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblProductCount.Name = "lblProductCount";
-            this.lblProductCount.Size = new System.Drawing.Size(107, 41);
-            this.lblProductCount.TabIndex = 29;
-            this.lblProductCount.Text = "0";
-            this.lblProductCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNew.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Appearance.Options.UseFont = true;
+            this.btnNew.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
+            this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnNew.Location = new System.Drawing.Point(809, 300);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(187, 59);
+            this.btnNew.TabIndex = 19;
+            this.btnNew.Text = "عملية شراء جديدة";
             // 
             // FRM_BuyOrder
             // 
@@ -756,7 +764,8 @@ namespace Sales_Managment.PL
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "فاتورة المبيعات";
+            this.Text = "فاتورة المشتريات";
+            this.Load += new System.EventHandler(this.FRM_BuyOrder_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -795,15 +804,15 @@ namespace Sales_Managment.PL
         private System.Windows.Forms.TextBox textInvoiceSum;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSelectSup;
         public System.Windows.Forms.PictureBox Picture_customer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox text_CUSTO_CODE;
-        private System.Windows.Forms.TextBox textMail;
+        private System.Windows.Forms.TextBox txtSupCmpID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textPhone;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textLname;
+        private System.Windows.Forms.TextBox txtAdress;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textNname;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -817,8 +826,8 @@ namespace Sales_Managment.PL
         private System.Windows.Forms.TextBox textInvoice_NUM;
         private System.Windows.Forms.TextBox txtUNIT;
         private System.Windows.Forms.Label label18;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton btnNewBuy;
+        private DevExpress.XtraEditors.SimpleButton btnPayInvoice;
+        private DevExpress.XtraEditors.SimpleButton btnprdSelectLIST;
         private System.Windows.Forms.RadioButton rdbtnAGEL;
         private System.Windows.Forms.RadioButton rdbtnCash;
         private System.Windows.Forms.Label label19;
@@ -827,5 +836,6 @@ namespace Sales_Managment.PL
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblProductCount;
         private System.Windows.Forms.Label label21;
+        private DevExpress.XtraEditors.SimpleButton btnNew;
     }
 }
