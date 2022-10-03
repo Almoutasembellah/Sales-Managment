@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Globalization;
 
 namespace Sales_Managment.PL
 {
     public partial class FRM_BuyOrder : DevExpress.XtraEditors.XtraForm
     {
-       // BL.Class_ORDERS orders = new BL.Class_ORDERS();
+       BL.Class_ORDERS orders = new BL.Class_ORDERS();
+        BL.Cls_Products products = new BL.Cls_Products();
         DataTable dt =new DataTable();
         void creatDataTable()
         {
@@ -97,8 +99,8 @@ namespace Sales_Managment.PL
         {
             textInvoiceSum.Text =
                 (from DataGridViewRow row in dataGridView1.Rows
-                 where row.Cells[6].FormattedValue.ToString() != String.Empty
-                 select Convert.ToDouble(row.Cells[6].FormattedValue)).Sum().ToString();
+                 where row.Cells[7].FormattedValue.ToString() != String.Empty
+                 select Convert.ToDouble(row.Cells[7].FormattedValue)).Sum().ToString();
         }
         public FRM_BuyOrder()
         {
@@ -160,6 +162,198 @@ namespace Sales_Managment.PL
 
         private void btnNewBuy_Click(object sender, EventArgs e)
         {
+  
+            PL.FRM_ProductList frm = new FRM_ProductList();
+            frm.ShowDialog();
+            txtPrdID.Text = frm.dgvProdList.CurrentRow.Cells[0].Value.ToString();
+            txtPrdName.Text = frm.dgvProdList.CurrentRow.Cells[1].Value.ToString();
+            txtPrdUnitPrice.Text = frm.dgvProdList.CurrentRow.Cells[3].Value.ToString();
+            txtPrdQTY.Focus();
+
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
+            clearBOXES();
+            clear_frm_boxes();
+            btnprdSelectLIST.Enabled = true;
+            textInvoice_NUM.Text = orders.get_invoice_num().Rows[0][0].ToString();
+        }
+
+        private void txtPrdQTY_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtPrdQTY.Text != String.Empty)
+
+            {
+                txtPrdDixcount.Focus();
+            }
+        }
+
+        private void txtPrdQTY_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)// 8 is ASCII code of backspace btn
+            {
+                e.Handled = true;//لا تسمح بالكتابة
+            }
+        }
+
+        private void txtPrdUnitPrice_TextChanged(object sender, EventArgs e)
+        {
+            calculate_amount();
+            calculate_Totalamount();
+        }
+
+        private void txtPrdUnitPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtPrdUnitPrice.Text != String.Empty)
+
+            {
+                txtPrdQTY.Focus();
+            }
+        }
+
+        private void txtPrdUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //اخر شرط ده لجلب الفاصلة اللي موجوده في الاعدادات بتاعت الجهاز سواء كانت نقطة او فاصلة
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) && e.KeyChar != 37 && e.KeyChar != 39)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrdQTY_TextChanged(object sender, EventArgs e)
+        {
+            calculate_amount();
+            calculate_Totalamount();
+        }
+
+        private void txtPrdDixcount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (txtPrdQTY.Text == String.Empty)
+                {
+                    MessageBox.Show("يجب إدخال الكمية ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (txtPrdDixcount.Text == String.Empty)
+                {
+                    MessageBox.Show("يجب إدخال نسبة الخصم ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (orders.verify_qty_in_stock(txtPrdID.Text, Convert.ToInt32(txtPrdQTY.Text)).Rows.Count < 1)
+                {
+                    MessageBox.Show("الكمية المطلوبة غير متوفرة بالمخزن ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[0].Value.ToString() == txtPrdID.Text)
+                    {
+                        MessageBox.Show("هذا المنتج موجود في الفاتورة بالفعل ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        clearBOXES();
+                        return;
+                    }
+
+                }
+                DataRow r = dt.NewRow();
+                r[0] = txtPrdID.Text;
+                r[1] = txtPrdName.Text;
+                r[3] = txtPrdUnitPrice.Text;
+                r[4] = txtPrdQTY.Text;
+                r[5] = txtPrdAmount.Text;
+                r[6] = txtPrdDixcount.Text;
+                r[7] = txtPrdTotalAmount.Text;
+                dt.Rows.Add(r);
+                dataGridView1.DataSource = dt;
+                clearBOXES();
+                invoice_Sum();
+                lblProductCount.Text = dataGridView1.Rows.Count.ToString();
+
+            }
+        }
+
+        private void txtPrdDixcount_TextChanged(object sender, EventArgs e)
+        {
+            calculate_Totalamount();
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (txtPrdID.Text != String.Empty && txtPrdName.Text != String.Empty && txtPrdUnitPrice.Text != String.Empty && txtPrdQTY.Text != String.Empty
+               && txtPrdAmount.Text != String.Empty && txtPrdDixcount.Text != String.Empty && txtPrdTotalAmount.Text != String.Empty)
+            {
+                MessageBox.Show("من فضلك قم بانهاء التعديل الحالي أولاً ", "انهاء التعديل الحالي", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            txtPrdID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtPrdName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtPrdUnitPrice.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtPrdQTY.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtPrdAmount.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtPrdDixcount.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            txtPrdTotalAmount.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            invoice_Sum();
+        }
+
+        private void تعديلمنتجفيالفاتورةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridView1_DoubleClick(sender, e);
+        }
+
+        private void حذفمنتجمنالفاتورةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+        }
+
+        private void حذفكلالمنتجاتمنالفاتورةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            dataGridView1.Refresh();
+        }
+
+        private void txtBarcode_MouseDown(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DataTable dt = new DataTable();
+                dt = products.get_PRDCTS_ByBarcode(txtBarcode.Text);
+                txtPrdID.Text =  dt.Rows[0][0].ToString();
+                txtPrdName.Text = dt.Rows[0][1].ToString();
+                txtPrdUnitPrice.Text = dt.Rows[0][3].ToString(); 
+                txtPrdQTY.Focus();
+            }
+        }
+
+        private void rdbtnCash_CheckedChanged(object sender, EventArgs e)
+        {
+            dtPayTime.Enabled = false;
+        }
+
+        private void rdbtnAGEL_CheckedChanged(object sender, EventArgs e)
+        {
+            dtPayTime.Enabled = true;
+        }
+
+        private void btnPayInvoice_Click(object sender, EventArgs e)
+        {
+            Frm_PayBuy frm = new Frm_PayBuy();
+            frm.ShowDialog();
 
         }
     }

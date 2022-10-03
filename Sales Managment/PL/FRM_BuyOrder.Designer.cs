@@ -29,6 +29,7 @@ namespace Sales_Managment.PL
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_BuyOrder));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@ namespace Sales_Managment.PL
             this.rdbtnAGEL = new System.Windows.Forms.RadioButton();
             this.rdbtnCash = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.lblProductCount = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
@@ -61,6 +63,10 @@ namespace Sales_Managment.PL
             this.label9 = new System.Windows.Forms.Label();
             this.p = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.تعديلمنتجفيالفاتورةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفمنتجمنالفاتورةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textInvoiceSum = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -84,10 +90,10 @@ namespace Sales_Managment.PL
             this.textinvoice_descr = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textInvoice_NUM = new System.Windows.Forms.TextBox();
-            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -123,6 +129,7 @@ namespace Sales_Managment.PL
             // 
             // dtPayTime
             // 
+            this.dtPayTime.Enabled = false;
             this.dtPayTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtPayTime.Location = new System.Drawing.Point(579, 62);
             this.dtPayTime.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -142,22 +149,24 @@ namespace Sales_Managment.PL
             this.btnPayInvoice.Size = new System.Drawing.Size(187, 59);
             this.btnPayInvoice.TabIndex = 15;
             this.btnPayInvoice.Text = "ادفع";
+            this.btnPayInvoice.Click += new System.EventHandler(this.btnPayInvoice_Click);
             // 
             // rdbtnAGEL
             // 
             this.rdbtnAGEL.AutoSize = true;
             this.rdbtnAGEL.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtnAGEL.Location = new System.Drawing.Point(881, 58);
+            this.rdbtnAGEL.Location = new System.Drawing.Point(891, 60);
             this.rdbtnAGEL.Name = "rdbtnAGEL";
             this.rdbtnAGEL.Size = new System.Drawing.Size(104, 32);
             this.rdbtnAGEL.TabIndex = 17;
-            this.rdbtnAGEL.TabStop = true;
             this.rdbtnAGEL.Text = "شراء آجل:";
             this.rdbtnAGEL.UseVisualStyleBackColor = true;
+            this.rdbtnAGEL.CheckedChanged += new System.EventHandler(this.rdbtnAGEL_CheckedChanged);
             // 
             // rdbtnCash
             // 
             this.rdbtnCash.AutoSize = true;
+            this.rdbtnCash.Checked = true;
             this.rdbtnCash.Font = new System.Drawing.Font("Droid Arabic Kufi", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbtnCash.Location = new System.Drawing.Point(881, 28);
             this.rdbtnCash.Name = "rdbtnCash";
@@ -166,6 +175,7 @@ namespace Sales_Managment.PL
             this.rdbtnCash.TabStop = true;
             this.rdbtnCash.Text = "شراء كاش:";
             this.rdbtnCash.UseVisualStyleBackColor = true;
+            this.rdbtnCash.CheckedChanged += new System.EventHandler(this.rdbtnCash_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -206,6 +216,19 @@ namespace Sales_Managment.PL
             this.groupBox3.Text = "لائحة المنتجات";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // btnNew
+            // 
+            this.btnNew.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Appearance.Options.UseFont = true;
+            this.btnNew.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
+            this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNew.ImageOptions.SvgImage")));
+            this.btnNew.Location = new System.Drawing.Point(809, 300);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(187, 59);
+            this.btnNew.TabIndex = 19;
+            this.btnNew.Text = "عملية شراء جديدة";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // lblProductCount
             // 
             this.lblProductCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -235,6 +258,8 @@ namespace Sales_Managment.PL
             this.txtBarcode.Size = new System.Drawing.Size(145, 36);
             this.txtBarcode.TabIndex = 28;
             this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
+            this.txtBarcode.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtBarcode_MouseDown);
             // 
             // label20
             // 
@@ -288,7 +313,7 @@ namespace Sales_Managment.PL
             // 
             this.btnprdSelectLIST.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnprdSelectLIST.Appearance.Options.UseFont = true;
-            this.btnprdSelectLIST.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNewBuy.ImageOptions.Image")));
+            this.btnprdSelectLIST.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnprdSelectLIST.ImageOptions.Image")));
             this.btnprdSelectLIST.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnprdSelectLIST.Location = new System.Drawing.Point(835, 53);
             this.btnprdSelectLIST.Name = "btnprdSelectLIST";
@@ -327,6 +352,8 @@ namespace Sales_Managment.PL
             this.txtPrdDixcount.Size = new System.Drawing.Size(84, 36);
             this.txtPrdDixcount.TabIndex = 21;
             this.txtPrdDixcount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrdDixcount.TextChanged += new System.EventHandler(this.txtPrdDixcount_TextChanged);
+            this.txtPrdDixcount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrdDixcount_KeyDown);
             // 
             // label15
             // 
@@ -372,6 +399,9 @@ namespace Sales_Managment.PL
             this.txtPrdQTY.Size = new System.Drawing.Size(69, 36);
             this.txtPrdQTY.TabIndex = 17;
             this.txtPrdQTY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrdQTY.TextChanged += new System.EventHandler(this.txtPrdQTY_TextChanged);
+            this.txtPrdQTY.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrdQTY_KeyDown);
+            this.txtPrdQTY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrdQTY_KeyPress);
             // 
             // label13
             // 
@@ -394,6 +424,9 @@ namespace Sales_Managment.PL
             this.txtPrdUnitPrice.Size = new System.Drawing.Size(103, 36);
             this.txtPrdUnitPrice.TabIndex = 15;
             this.txtPrdUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrdUnitPrice.TextChanged += new System.EventHandler(this.txtPrdUnitPrice_TextChanged);
+            this.txtPrdUnitPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrdUnitPrice_KeyDown);
+            this.txtPrdUnitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrdUnitPrice_KeyPress);
             // 
             // label12
             // 
@@ -467,6 +500,7 @@ namespace Sales_Managment.PL
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(3, 85);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dataGridView1.MultiSelect = false;
@@ -477,6 +511,39 @@ namespace Sales_Managment.PL
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(993, 208);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.تعديلمنتجفيالفاتورةToolStripMenuItem,
+            this.حذفمنتجمنالفاتورةToolStripMenuItem,
+            this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(266, 76);
+            // 
+            // تعديلمنتجفيالفاتورةToolStripMenuItem
+            // 
+            this.تعديلمنتجفيالفاتورةToolStripMenuItem.Name = "تعديلمنتجفيالفاتورةToolStripMenuItem";
+            this.تعديلمنتجفيالفاتورةToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.تعديلمنتجفيالفاتورةToolStripMenuItem.Text = "تعديل منتج في الفاتورة";
+            this.تعديلمنتجفيالفاتورةToolStripMenuItem.Click += new System.EventHandler(this.تعديلمنتجفيالفاتورةToolStripMenuItem_Click);
+            // 
+            // حذفمنتجمنالفاتورةToolStripMenuItem
+            // 
+            this.حذفمنتجمنالفاتورةToolStripMenuItem.Name = "حذفمنتجمنالفاتورةToolStripMenuItem";
+            this.حذفمنتجمنالفاتورةToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.حذفمنتجمنالفاتورةToolStripMenuItem.Text = "حذف منتج من الفاتورة";
+            this.حذفمنتجمنالفاتورةToolStripMenuItem.Click += new System.EventHandler(this.حذفمنتجمنالفاتورةToolStripMenuItem_Click);
+            // 
+            // حذفكلالمنتجاتمنالفاتورةToolStripMenuItem
+            // 
+            this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem.Name = "حذفكلالمنتجاتمنالفاتورةToolStripMenuItem";
+            this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem.Text = "حذف كل المنتجات من الفاتورة";
+            this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem.Click += new System.EventHandler(this.حذفكلالمنتجاتمنالفاتورةToolStripMenuItem_Click);
             // 
             // textInvoiceSum
             // 
@@ -731,18 +798,6 @@ namespace Sales_Managment.PL
             this.textInvoice_NUM.Size = new System.Drawing.Size(237, 36);
             this.textInvoice_NUM.TabIndex = 0;
             // 
-            // btnNew
-            // 
-            this.btnNew.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Appearance.Options.UseFont = true;
-            this.btnNew.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnNew.Location = new System.Drawing.Point(809, 300);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(187, 59);
-            this.btnNew.TabIndex = 19;
-            this.btnNew.Text = "عملية شراء جديدة";
-            // 
             // FRM_BuyOrder
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -771,6 +826,7 @@ namespace Sales_Managment.PL
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_customer)).EndInit();
@@ -837,5 +893,9 @@ namespace Sales_Managment.PL
         private System.Windows.Forms.Label lblProductCount;
         private System.Windows.Forms.Label label21;
         private DevExpress.XtraEditors.SimpleButton btnNew;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem تعديلمنتجفيالفاتورةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem حذفمنتجمنالفاتورةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem حذفكلالمنتجاتمنالفاتورةToolStripMenuItem;
     }
 }

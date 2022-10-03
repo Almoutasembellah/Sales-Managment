@@ -32,8 +32,8 @@ namespace Sales_Managment.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvProdList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,26 +54,28 @@ namespace Sales_Managment.PL
             this.textSearch.TabIndex = 6;
             this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
-            // dataGridView1
+            // dgvProdList
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
+            this.dgvProdList.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 58);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 26;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1025, 558);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvProdList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProdList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProdList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvProdList.Location = new System.Drawing.Point(0, 58);
+            this.dgvProdList.MultiSelect = false;
+            this.dgvProdList.Name = "dgvProdList";
+            this.dgvProdList.RowHeadersVisible = false;
+            this.dgvProdList.RowHeadersWidth = 51;
+            this.dgvProdList.RowTemplate.Height = 26;
+            this.dgvProdList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProdList.Size = new System.Drawing.Size(1025, 558);
+            this.dgvProdList.TabIndex = 5;
+            this.dgvProdList.DoubleClick += new System.EventHandler(this.dgvProdList_DoubleClick);
+            this.dgvProdList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // FRM_ProductList
             // 
@@ -86,7 +88,7 @@ namespace Sales_Managment.PL
             this.ClientSize = new System.Drawing.Size(1025, 616);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProdList);
             this.Font = new System.Drawing.Font("Droid Arabic Kufi", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -97,7 +99,7 @@ namespace Sales_Managment.PL
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "قائمة المنتجات";
             this.Load += new System.EventHandler(this.FRM_ProductList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +109,6 @@ namespace Sales_Managment.PL
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dgvProdList;
     }
 }

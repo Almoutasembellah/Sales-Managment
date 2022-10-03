@@ -30,7 +30,18 @@ namespace Sales_Managment.BL
             dal.close();
             return dt;
         }
-     
+        public DataTable get_PRDCTS_ByBarcode(string BarCode)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[1];
+            param[0] = new SqlParameter("@BarCode", SqlDbType.NVarChar, 50);
+            param[0].Value = BarCode;
+            DataTable dt = new DataTable();
+            dt = dal.selectData("get_PRDCTS_ByBarcode", param);
+            dal.close();
+            return dt;
+        }
         public DataTable get_ProductID()
         {
             DAL.DataAccessLayer dal = new DAL.DataAccessLayer();

@@ -21,12 +21,22 @@ namespace Sales_Managment.PL
 
         private void FRM_ProductList_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = product.get_all_Products();
+            dgvProdList.DataSource = product.get_all_Products();
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = product.Search_product(textSearch.Text);
+            dgvProdList.DataSource = product.Search_product(textSearch.Text);
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void dgvProdList_DoubleClick(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
