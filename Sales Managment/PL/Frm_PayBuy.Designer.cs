@@ -46,7 +46,7 @@
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEnter.ImageOptions.Image")));
             this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnSave.Location = new System.Drawing.Point(21, 256);
+            this.btnSave.Location = new System.Drawing.Point(11, 256);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(129, 81);
             this.btnSave.TabIndex = 31;
@@ -135,11 +135,12 @@
             this.btnPrint.Appearance.Options.UseFont = true;
             this.btnPrint.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
             this.btnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnPrint.Location = new System.Drawing.Point(175, 256);
+            this.btnPrint.Location = new System.Drawing.Point(146, 256);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(129, 81);
+            this.btnPrint.Size = new System.Drawing.Size(158, 81);
             this.btnPrint.TabIndex = 33;
-            this.btnPrint.Text = "طباعة";
+            this.btnPrint.Text = "حفظ وطباعة";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // Frm_PayBuy
             // 

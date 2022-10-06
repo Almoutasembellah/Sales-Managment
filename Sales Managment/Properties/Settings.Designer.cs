@@ -86,9 +86,9 @@ namespace Sales_Managment.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public decimal Bakey {
+        public double Bakey {
             get {
-                return ((decimal)(this["Bakey"]));
+                return ((double)(this["Bakey"]));
             }
             set {
                 this["Bakey"] = value;
@@ -164,6 +164,42 @@ namespace Sales_Managment.Properties {
             }
             set {
                 this["password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal TOtalMatloub {
+            get {
+                return ((decimal)(this["TOtalMatloub"]));
+            }
+            set {
+                this["TOtalMatloub"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SaveAndPrint {
+            get {
+                return ((bool)(this["SaveAndPrint"]));
+            }
+            set {
+                this["SaveAndPrint"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string btnStatus {
+            get {
+                return ((string)(this["btnStatus"]));
+            }
+            set {
+                this["btnStatus"] = value;
             }
         }
     }

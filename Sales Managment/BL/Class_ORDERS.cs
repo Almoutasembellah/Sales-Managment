@@ -65,39 +65,24 @@ namespace Sales_Managment.BL
             dal.close();
         }
 
-        public void ADD_SupPayHistory(int ID_ORDER, int Sup_ID, decimal paidValue,string dateOfPayment )
+        
+        
+
+        public void ADD_Supplier_Money(int ID_ORDER, int Sup_ID, double Demand_Money, string Order_Date, string Reminder_Date)
         {
             DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
             dal.open();
-            SqlParameter[] param = new SqlParameter[4];
-            param[0] = new SqlParameter("@ID_ORDER", SqlDbType.Int);
-            param[0].Value = ID_ORDER;
-            param[1] = new SqlParameter("@Sup_ID ", SqlDbType.Int);
-            param[1].Value = Sup_ID;
-            param[2] = new SqlParameter("@paidValue", SqlDbType.Real);
-            param[2].Value = paidValue;
-            param[3] = new SqlParameter("@dateOfPayment", SqlDbType.NVarChar, 50);
-            param[3].Value = dateOfPayment;
-            dal.Excutecommand("ADD_SupPayHistory", param);
-            dal.close();
-        }
-
-
-            public void ADD_Supplier_Money(int ID_ORDER, int Sup_ID, decimal Demand_Money, string dateOfPayment, string Reminder_Date)
-        {
-            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
-            dal.open();
-            SqlParameter[] param = new SqlParameter[4];
+            SqlParameter[] param = new SqlParameter[5];
             param[0] = new SqlParameter("@ID_ORDER", SqlDbType.Int);
             param[0].Value = ID_ORDER;
             param[1] = new SqlParameter("@Sup_ID ", SqlDbType.Int);
             param[1].Value = Sup_ID;
             param[2] = new SqlParameter("@Demand_Money", SqlDbType.Real);
             param[2].Value = Demand_Money;
-            param[3] = new SqlParameter("@dateOfPayment", SqlDbType.NVarChar, 50);
-            param[3].Value = dateOfPayment;
-            param[3] = new SqlParameter("@Reminder_Date", SqlDbType.NVarChar, 50);
-            param[3].Value = Reminder_Date;
+            param[3] = new SqlParameter("@Order_Date", SqlDbType.NVarChar, 50);
+            param[3].Value = Order_Date;
+            param[4] = new SqlParameter("@Reminder_Date", SqlDbType.NVarChar, 50);
+            param[4].Value = Reminder_Date;
             dal.Excutecommand("ADD_Supplier_Money", param);
             dal.close();
         }
@@ -143,6 +128,17 @@ namespace Sales_Managment.BL
             dt = dal.selectData("search_Order_List", Param);
             dal.close();
             return dt;
+        }
+        public void Delete_DesirvedSupMoney(int ID)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@ID", SqlDbType.Int);
+            param[0].Value = ID;
+            dal.Excutecommand("Delete_DesirvedSupMoney", param);
+            dal.close();
         }
     }
 }

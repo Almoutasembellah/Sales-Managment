@@ -75,7 +75,7 @@ namespace Sales_Managment.PL
             this.label5 = new System.Windows.Forms.Label();
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.text_CUSTO_CODE = new System.Windows.Forms.TextBox();
+            this.text_SUP_CODE = new System.Windows.Forms.TextBox();
             this.txtSupCmpID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textPhone = new System.Windows.Forms.TextBox();
@@ -564,7 +564,7 @@ namespace Sales_Managment.PL
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtAdress);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.text_CUSTO_CODE);
+            this.groupBox2.Controls.Add(this.text_SUP_CODE);
             this.groupBox2.Controls.Add(this.txtSupCmpID);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textPhone);
@@ -644,14 +644,14 @@ namespace Sales_Managment.PL
             this.label7.TabIndex = 3;
             this.label7.Text = "العنوان:";
             // 
-            // text_CUSTO_CODE
+            // text_SUP_CODE
             // 
-            this.text_CUSTO_CODE.Location = new System.Drawing.Point(343, 45);
-            this.text_CUSTO_CODE.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.text_CUSTO_CODE.Name = "text_CUSTO_CODE";
-            this.text_CUSTO_CODE.ReadOnly = true;
-            this.text_CUSTO_CODE.Size = new System.Drawing.Size(96, 36);
-            this.text_CUSTO_CODE.TabIndex = 15;
+            this.text_SUP_CODE.Location = new System.Drawing.Point(343, 45);
+            this.text_SUP_CODE.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.text_SUP_CODE.Name = "text_SUP_CODE";
+            this.text_SUP_CODE.ReadOnly = true;
+            this.text_SUP_CODE.Size = new System.Drawing.Size(96, 36);
+            this.text_SUP_CODE.TabIndex = 15;
             // 
             // txtSupCmpID
             // 
@@ -863,7 +863,7 @@ namespace Sales_Managment.PL
         private System.Windows.Forms.Button btnSelectSup;
         public System.Windows.Forms.PictureBox Picture_customer;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox text_CUSTO_CODE;
+        private System.Windows.Forms.TextBox text_SUP_CODE;
         private System.Windows.Forms.TextBox txtSupCmpID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textPhone;

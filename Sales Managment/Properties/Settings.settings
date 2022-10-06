@@ -17,7 +17,7 @@
     <Setting Name="Madfou3" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="Bakey" Type="System.Decimal" Scope="User">
+    <Setting Name="Bakey" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="CheckButton" Type="System.Boolean" Scope="User">
@@ -36,6 +36,15 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TOtalMatloub" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SaveAndPrint" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="btnStatus" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

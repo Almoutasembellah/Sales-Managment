@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.rbtnOneSupplier = new System.Windows.Forms.RadioButton();
@@ -46,13 +47,12 @@
             this.rbtnPayAll = new System.Windows.Forms.RadioButton();
             this.NudPrice = new System.Windows.Forms.NumericUpDown();
             this.btnPay = new DevExpress.XtraEditors.SimpleButton();
-            this.DtpDate = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtIMENextPayment = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSearch)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -68,6 +68,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.DtpDate);
             this.groupBox1.Controls.Add(this.btnPrint);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.rbtnOneSupplier);
@@ -75,9 +76,17 @@
             this.groupBox1.Controls.Add(this.cbxSupplier);
             this.groupBox1.Location = new System.Drawing.Point(12, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(883, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1041, 100);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
+            // 
+            // DtpDate
+            // 
+            this.DtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpDate.Location = new System.Drawing.Point(425, 41);
+            this.DtpDate.Name = "DtpDate";
+            this.DtpDate.Size = new System.Drawing.Size(139, 29);
+            this.DtpDate.TabIndex = 22;
             // 
             // btnPrint
             // 
@@ -85,9 +94,9 @@
             this.btnPrint.Appearance.Options.UseFont = true;
             this.btnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.ImageOptions.Image")));
             this.btnPrint.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnPrint.Location = new System.Drawing.Point(36, 33);
+            this.btnPrint.Location = new System.Drawing.Point(6, 28);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(231, 46);
+            this.btnPrint.Size = new System.Drawing.Size(165, 46);
             this.btnPrint.TabIndex = 13;
             this.btnPrint.Text = "طباعة تقرير مفصل";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -98,9 +107,9 @@
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnAdd.Location = new System.Drawing.Point(273, 33);
+            this.btnAdd.Location = new System.Drawing.Point(202, 28);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(231, 46);
+            this.btnAdd.Size = new System.Drawing.Size(125, 46);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "بحث";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -109,7 +118,7 @@
             // 
             this.rbtnOneSupplier.AutoSize = true;
             this.rbtnOneSupplier.ForeColor = System.Drawing.Color.Blue;
-            this.rbtnOneSupplier.Location = new System.Drawing.Point(668, 39);
+            this.rbtnOneSupplier.Location = new System.Drawing.Point(776, 41);
             this.rbtnOneSupplier.Name = "rbtnOneSupplier";
             this.rbtnOneSupplier.Size = new System.Drawing.Size(95, 28);
             this.rbtnOneSupplier.TabIndex = 11;
@@ -121,7 +130,7 @@
             this.rbtnAllSup.AutoSize = true;
             this.rbtnAllSup.Checked = true;
             this.rbtnAllSup.ForeColor = System.Drawing.Color.Blue;
-            this.rbtnAllSup.Location = new System.Drawing.Point(768, 39);
+            this.rbtnAllSup.Location = new System.Drawing.Point(876, 41);
             this.rbtnAllSup.Name = "rbtnAllSup";
             this.rbtnAllSup.Size = new System.Drawing.Size(106, 28);
             this.rbtnAllSup.TabIndex = 10;
@@ -135,7 +144,7 @@
             this.cbxSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxSupplier.FormattingEnabled = true;
-            this.cbxSupplier.Location = new System.Drawing.Point(510, 38);
+            this.cbxSupplier.Location = new System.Drawing.Point(618, 40);
             this.cbxSupplier.Name = "cbxSupplier";
             this.cbxSupplier.Size = new System.Drawing.Size(152, 32);
             this.cbxSupplier.TabIndex = 9;
@@ -152,7 +161,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Yellow;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -174,14 +183,15 @@
             this.DgvSearch.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.DgvSearch.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Blue;
             this.DgvSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvSearch.Size = new System.Drawing.Size(883, 274);
+            this.DgvSearch.Size = new System.Drawing.Size(1041, 274);
             this.DgvSearch.TabIndex = 14;
+            this.DgvSearch.SelectionChanged += new System.EventHandler(this.DgvSearch_SelectionChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(579, 439);
+            this.label3.Location = new System.Drawing.Point(750, 433);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 24);
             this.label3.TabIndex = 15;
@@ -190,7 +200,7 @@
             // txtTotal
             // 
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Location = new System.Drawing.Point(700, 437);
+            this.txtTotal.Location = new System.Drawing.Point(858, 431);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(195, 29);
@@ -201,9 +211,10 @@
             // 
             this.groupBox2.Controls.Add(this.rbtnPayPart);
             this.groupBox2.Controls.Add(this.rbtnPayAll);
+            this.groupBox2.Controls.Add(this.NudPrice);
             this.groupBox2.Location = new System.Drawing.Point(12, 412);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(373, 69);
+            this.groupBox2.Size = new System.Drawing.Size(373, 59);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             // 
@@ -211,19 +222,20 @@
             // 
             this.rbtnPayPart.AutoSize = true;
             this.rbtnPayPart.ForeColor = System.Drawing.Color.Blue;
-            this.rbtnPayPart.Location = new System.Drawing.Point(87, 31);
+            this.rbtnPayPart.Location = new System.Drawing.Point(108, 19);
             this.rbtnPayPart.Name = "rbtnPayPart";
             this.rbtnPayPart.Size = new System.Drawing.Size(119, 28);
             this.rbtnPayPart.TabIndex = 13;
             this.rbtnPayPart.Text = "تسديد جزء منه";
             this.rbtnPayPart.UseVisualStyleBackColor = true;
+            this.rbtnPayPart.CheckedChanged += new System.EventHandler(this.rbtnPayPart_CheckedChanged);
             // 
             // rbtnPayAll
             // 
             this.rbtnPayAll.AutoSize = true;
             this.rbtnPayAll.Checked = true;
             this.rbtnPayAll.ForeColor = System.Drawing.Color.Blue;
-            this.rbtnPayAll.Location = new System.Drawing.Point(210, 31);
+            this.rbtnPayAll.Location = new System.Drawing.Point(231, 19);
             this.rbtnPayAll.Name = "rbtnPayAll";
             this.rbtnPayAll.Size = new System.Drawing.Size(134, 28);
             this.rbtnPayAll.TabIndex = 12;
@@ -234,7 +246,7 @@
             // NudPrice
             // 
             this.NudPrice.DecimalPlaces = 2;
-            this.NudPrice.Location = new System.Drawing.Point(294, 437);
+            this.NudPrice.Location = new System.Drawing.Point(17, 19);
             this.NudPrice.Maximum = new decimal(new int[] {
             1215752192,
             23,
@@ -256,39 +268,43 @@
             this.btnPay.Appearance.Options.UseFont = true;
             this.btnPay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.ImageOptions.Image")));
             this.btnPay.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnPay.Location = new System.Drawing.Point(401, 435);
+            this.btnPay.Location = new System.Drawing.Point(398, 425);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(150, 46);
             this.btnPay.TabIndex = 14;
             this.btnPay.Text = "تسديد المحدد";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // DtpDate
+            // dtIMENextPayment
             // 
-            this.DtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpDate.Location = new System.Drawing.Point(12, 12);
-            this.DtpDate.Name = "DtpDate";
-            this.DtpDate.Size = new System.Drawing.Size(111, 29);
-            this.DtpDate.TabIndex = 22;
+            this.dtIMENextPayment.Enabled = false;
+            this.dtIMENextPayment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtIMENextPayment.Location = new System.Drawing.Point(246, 477);
+            this.dtIMENextPayment.Name = "dtIMENextPayment";
+            this.dtIMENextPayment.Size = new System.Drawing.Size(139, 29);
+            this.dtIMENextPayment.TabIndex = 23;
             // 
-            // pictureBox1
+            // label1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 38);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(122, 477);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 24);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "ميعاد التسديد القادم:";
             // 
             // Frm_SupplierMoney
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(905, 487);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.DtpDate);
+            this.ClientSize = new System.Drawing.Size(1065, 518);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtIMENextPayment);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.DgvSearch);
-            this.Controls.Add(this.NudPrice);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTotal);
@@ -309,7 +325,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +348,7 @@
         private System.Windows.Forms.NumericUpDown NudPrice;
         private DevExpress.XtraEditors.SimpleButton btnPay;
         private System.Windows.Forms.DateTimePicker DtpDate;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker dtIMENextPayment;
+        private System.Windows.Forms.Label label1;
     }
 }

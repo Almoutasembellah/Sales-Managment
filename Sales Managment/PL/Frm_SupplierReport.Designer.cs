@@ -31,11 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_SupplierReport));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DtpDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.rbtnOneSupplier = new System.Windows.Forms.RadioButton();
+            this.DtpDate = new System.Windows.Forms.DateTimePicker();
             this.rbtnAllSup = new System.Windows.Forms.RadioButton();
             this.cbxSupplier = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,37 +43,21 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSearch)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 38);
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
-            // 
-            // DtpDate
-            // 
-            this.DtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpDate.Location = new System.Drawing.Point(12, 8);
-            this.DtpDate.Name = "DtpDate";
-            this.DtpDate.Size = new System.Drawing.Size(111, 36);
-            this.DtpDate.TabIndex = 26;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.rbtnOneSupplier);
+            this.groupBox1.Controls.Add(this.DtpDate);
             this.groupBox1.Controls.Add(this.rbtnAllSup);
             this.groupBox1.Controls.Add(this.cbxSupplier);
-            this.groupBox1.Location = new System.Drawing.Point(194, 35);
+            this.groupBox1.Location = new System.Drawing.Point(12, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 80);
+            this.groupBox1.Size = new System.Drawing.Size(883, 80);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
@@ -84,9 +67,9 @@
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnAdd.Location = new System.Drawing.Point(6, 29);
+            this.btnAdd.Location = new System.Drawing.Point(271, 28);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(160, 46);
+            this.btnAdd.Size = new System.Drawing.Size(147, 46);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "بحث";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -95,21 +78,29 @@
             // 
             this.rbtnOneSupplier.AutoSize = true;
             this.rbtnOneSupplier.ForeColor = System.Drawing.Color.Blue;
-            this.rbtnOneSupplier.Location = new System.Drawing.Point(340, 35);
+            this.rbtnOneSupplier.Location = new System.Drawing.Point(592, 34);
             this.rbtnOneSupplier.Name = "rbtnOneSupplier";
-            this.rbtnOneSupplier.Size = new System.Drawing.Size(100, 32);
+            this.rbtnOneSupplier.Size = new System.Drawing.Size(123, 40);
             this.rbtnOneSupplier.TabIndex = 11;
             this.rbtnOneSupplier.Text = "مورد محدد";
             this.rbtnOneSupplier.UseVisualStyleBackColor = true;
+            // 
+            // DtpDate
+            // 
+            this.DtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpDate.Location = new System.Drawing.Point(6, 28);
+            this.DtpDate.Name = "DtpDate";
+            this.DtpDate.Size = new System.Drawing.Size(211, 43);
+            this.DtpDate.TabIndex = 26;
             // 
             // rbtnAllSup
             // 
             this.rbtnAllSup.AutoSize = true;
             this.rbtnAllSup.Checked = true;
             this.rbtnAllSup.ForeColor = System.Drawing.Color.Blue;
-            this.rbtnAllSup.Location = new System.Drawing.Point(440, 35);
+            this.rbtnAllSup.Location = new System.Drawing.Point(735, 33);
             this.rbtnAllSup.Name = "rbtnAllSup";
-            this.rbtnAllSup.Size = new System.Drawing.Size(109, 32);
+            this.rbtnAllSup.Size = new System.Drawing.Size(136, 40);
             this.rbtnAllSup.TabIndex = 10;
             this.rbtnAllSup.TabStop = true;
             this.rbtnAllSup.Text = "كل الموردين";
@@ -120,9 +111,9 @@
             this.cbxSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxSupplier.FormattingEnabled = true;
-            this.cbxSupplier.Location = new System.Drawing.Point(182, 34);
+            this.cbxSupplier.Location = new System.Drawing.Point(434, 33);
             this.cbxSupplier.Name = "cbxSupplier";
-            this.cbxSupplier.Size = new System.Drawing.Size(152, 36);
+            this.cbxSupplier.Size = new System.Drawing.Size(152, 44);
             this.cbxSupplier.TabIndex = 9;
             // 
             // label2
@@ -132,7 +123,7 @@
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(331, -4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(248, 36);
+            this.label2.Size = new System.Drawing.Size(311, 46);
             this.label2.TabIndex = 24;
             this.label2.Text = "المبالغ المسددة للموردين";
             // 
@@ -148,12 +139,12 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Droid Arabic Kufi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Yellow;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvSearch.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvSearch.Location = new System.Drawing.Point(12, 116);
+            this.DgvSearch.Location = new System.Drawing.Point(12, 118);
             this.DgvSearch.Name = "DgvSearch";
             this.DgvSearch.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -164,13 +155,15 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvSearch.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvSearch.RowHeadersWidth = 51;
             this.DgvSearch.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.DgvSearch.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Blue;
             this.DgvSearch.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.DgvSearch.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Blue;
             this.DgvSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvSearch.Size = new System.Drawing.Size(883, 274);
+            this.DgvSearch.Size = new System.Drawing.Size(883, 266);
             this.DgvSearch.TabIndex = 28;
+            this.DgvSearch.SelectionChanged += new System.EventHandler(this.DgvSearch_SelectionChanged);
             // 
             // btnDelete
             // 
@@ -191,7 +184,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtTotal);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(166, 390);
+            this.groupBox2.Location = new System.Drawing.Point(162, 390);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(606, 80);
             this.groupBox2.TabIndex = 32;
@@ -203,29 +196,29 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(162, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 28);
+            this.label3.Size = new System.Drawing.Size(217, 36);
             this.label3.TabIndex = 30;
             this.label3.Text = "اجمالى المبالغ المسددة:";
             // 
             // txtTotal
             // 
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Location = new System.Drawing.Point(6, 28);
+            this.txtTotal.Location = new System.Drawing.Point(6, 25);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(150, 36);
+            this.txtTotal.Size = new System.Drawing.Size(150, 43);
             this.txtTotal.TabIndex = 31;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Frm_SupplierReport
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(913, 482);
+            this.ClientSize = new System.Drawing.Size(910, 482);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.DgvSearch);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.DtpDate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Droid Arabic Kufi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,7 +232,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تقارير الموردين";
             this.Load += new System.EventHandler(this.Frm_SupplierReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSearch)).EndInit();
@@ -251,9 +243,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker DtpDate;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.Windows.Forms.RadioButton rbtnOneSupplier;
@@ -265,5 +254,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.DateTimePicker DtpDate;
     }
 }

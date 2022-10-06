@@ -41,7 +41,7 @@
             // txtQty
             // 
             this.txtQty.Font = new System.Drawing.Font("Droid Arabic Kufi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.Location = new System.Drawing.Point(86, 151);
+            this.txtQty.Location = new System.Drawing.Point(132, 149);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(304, 55);
@@ -52,9 +52,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(26, 159);
+            this.label3.Location = new System.Drawing.Point(40, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 28);
+            this.label3.Size = new System.Drawing.Size(74, 36);
             this.label3.TabIndex = 19;
             this.label3.Text = "الكمية:";
             // 
@@ -62,16 +62,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(-3, 96);
+            this.label1.Location = new System.Drawing.Point(11, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 28);
+            this.label1.Size = new System.Drawing.Size(112, 36);
             this.label1.TabIndex = 21;
             this.label1.Text = "سعر الشراء:";
             // 
             // txtBuyPrice
             // 
             this.txtBuyPrice.Font = new System.Drawing.Font("Droid Arabic Kufi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuyPrice.Location = new System.Drawing.Point(86, 88);
+            this.txtBuyPrice.Location = new System.Drawing.Point(132, 86);
             this.txtBuyPrice.Multiline = true;
             this.txtBuyPrice.Name = "txtBuyPrice";
             this.txtBuyPrice.Size = new System.Drawing.Size(304, 55);
@@ -82,16 +82,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(27, 36);
+            this.label2.Location = new System.Drawing.Point(41, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 28);
+            this.label2.Size = new System.Drawing.Size(72, 36);
             this.label2.TabIndex = 23;
             this.label2.Text = "الخصم:";
             // 
             // txtDiscount
             // 
             this.txtDiscount.Font = new System.Drawing.Font("Droid Arabic Kufi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.Location = new System.Drawing.Point(86, 28);
+            this.txtDiscount.Location = new System.Drawing.Point(132, 26);
             this.txtDiscount.Multiline = true;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(304, 55);
@@ -104,7 +104,7 @@
             this.btnEnter.Appearance.Options.UseFont = true;
             this.btnEnter.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEnter.ImageOptions.Image")));
             this.btnEnter.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-            this.btnEnter.Location = new System.Drawing.Point(86, 222);
+            this.btnEnter.Location = new System.Drawing.Point(132, 220);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(304, 46);
             this.btnEnter.TabIndex = 24;
@@ -115,7 +115,7 @@
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(395, 285);
+            this.ClientSize = new System.Drawing.Size(449, 285);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDiscount);

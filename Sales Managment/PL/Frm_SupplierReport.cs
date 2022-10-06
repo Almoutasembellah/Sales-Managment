@@ -12,11 +12,20 @@ namespace Sales_Managment
 {
     public partial class Frm_SupplierReport : DevExpress.XtraEditors.XtraForm
     {
+        BL.Cls_Suppliers suppliers = new BL.Cls_Suppliers();
+
+        void invoice_Sum()
+        {
+          txtTotal.Text =
+                (from DataGridViewRow row in DgvSearch.Rows
+                 where row.Cells[2].FormattedValue.ToString() != String.Empty
+                 select Convert.ToDouble(row.Cells[2].FormattedValue)).Sum().ToString();
+        }
         public Frm_SupplierReport()
         {
             InitializeComponent();
         }
-        Database db = new Database();
+     
         DataTable tbl = new DataTable();
 
 
@@ -24,8 +33,8 @@ namespace Sales_Managment
         private void FillSupplier()
         {
 
-            cbxSupplier.DataSource = db.readData("select * from Suppliers", "");
-            cbxSupplier.DisplayMember = "Sup_Name";
+            cbxSupplier.DataSource = suppliers.Get_AllSup_info();
+            cbxSupplier.DisplayMember = "اسم المورد";
             cbxSupplier.ValueMember = "Sup_ID";
         }
         private void Frm_SupplierReport_Load(object sender, EventArgs e)
@@ -35,17 +44,11 @@ namespace Sales_Managment
 
 
             tbl.Clear();
-            tbl = db.readData("SELECT [Order_ID] as 'رقم الفاتورة',[Price] as 'المبلغ المدفوع',[Date] as 'تاريخ ادفع' ,Suppliers.Sup_Name as 'اسم المورد' FROM [dbo].[Supplier_Report] ,Suppliers where Suppliers.Sup_ID =Supplier_Report.Sup_ID", "");
+            tbl = suppliers.get_suppPayHistory();
 
             DgvSearch.DataSource = tbl;
-
-            decimal totalPrice = 0;
-            for (int i = 0; i <= DgvSearch.Rows.Count - 1; i++)
-            {
-                totalPrice += Convert.ToDecimal(DgvSearch.Rows[i].Cells[1].Value);
-
-            }
-            txtTotal.Text = Math.Round(totalPrice, 2).ToString();
+            invoice_Sum();
+            //txtTotal.Text = Math.Round(invoice_Sum(), 2).ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -53,22 +56,15 @@ namespace Sales_Managment
             tbl.Clear();
             if (rbtnAllSup.Checked == true)
             {
-                tbl = db.readData("SELECT [Order_ID] as 'رقم الفاتورة',[Price] as 'المبلغ المدفوع',[Date] as 'تاريخ ادفع' ,Suppliers.Sup_Name as 'اسم المورد' FROM [dbo].[Supplier_Report] ,Suppliers where Suppliers.Sup_ID =Supplier_Report.Sup_ID", "");
+                tbl = suppliers.get_suppPayHistory();
             }
             else if (rbtnOneSupplier.Checked == true)
             {
-                tbl = db.readData("SELECT [Order_ID] as 'رقم الفاتورة',[Price] as 'المبلغ المدفوع',[Date] as 'تاريخ ادفع' ,Suppliers.Sup_Name as 'اسم المورد' FROM [dbo].[Supplier_Report] ,Suppliers where Suppliers.Sup_ID =Supplier_Report.Sup_ID and Suppliers.Sup_ID =" + cbxSupplier.SelectedValue + "", "");
-
+                tbl = suppliers.get_ONEsuppPayHistory(Convert.ToInt32(cbxSupplier.SelectedValue));
             }
             DgvSearch.DataSource = tbl;
 
-            decimal totalPrice = 0;
-            for (int i = 0; i <= DgvSearch.Rows.Count - 1; i++)
-            {
-                totalPrice += Convert.ToDecimal(DgvSearch.Rows[i].Cells[1].Value);
-
-            }
-            txtTotal.Text = Math.Round(totalPrice, 2).ToString();
+            invoice_Sum();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -80,12 +76,20 @@ namespace Sales_Managment
                     if (rbtnOneSupplier.Checked == true)
                     {
 
-                        db.exceuteData("delete from Supplier_Report where Sup_ID=" + cbxSupplier.SelectedValue + "", "تم مسح البيانات بنجاح");
-                        Frm_SupplierReport_Load(null, null);
+                        suppliers.delete_supPayRecoed(Convert.ToInt32(DgvSearch.CurrentRow.Cells[0].Value.ToString()));
+                        MessageBox.Show("تمت عملية المسح بنجاح", "عملية المسح ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
+
                     }
-                    else { MessageBox.Show("من فضلك حدد مورد اولا", "تاكيد"); return; }
+                    
                 }
             }
+            else { MessageBox.Show("لايوجد سجل لمسحه", "تنبية"); return; }
+        }
+
+        private void DgvSearch_SelectionChanged(object sender, EventArgs e)
+        {
+            //cbxSupplier.Text = DgvSearch.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

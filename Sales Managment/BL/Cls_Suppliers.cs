@@ -36,6 +36,39 @@ namespace Sales_Managment.BL
             dal.Excutecommand("ADD_Suppliers", param);
             dal.close();
         }
+        public void ADD_SupPayHistory(int ID_ORDER, int Sup_ID, decimal paidValue, string dateOfPayment)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[4];
+            param[0] = new SqlParameter("@ID_ORDER", SqlDbType.Int);
+            param[0].Value = ID_ORDER;
+            param[1] = new SqlParameter("@Sup_ID ", SqlDbType.Int);
+            param[1].Value = Sup_ID;
+            param[2] = new SqlParameter("@paidValue", SqlDbType.Real);
+            param[2].Value = paidValue;
+            param[3] = new SqlParameter("@dateOfPayment", SqlDbType.NVarChar, 50);
+            param[3].Value = dateOfPayment;
+            dal.Excutecommand("ADD_SupPayHistory", param);
+            dal.close();
+        }
+        public void update_SupMoney(decimal madfou3, string Reminder_Date, int ID_ORDER)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[3];
+
+            param[0] = new SqlParameter("@madfou3", SqlDbType.Real);
+            param[0].Value = madfou3;
+            param[1] = new SqlParameter("@Reminder_Date", SqlDbType.NVarChar, 50);
+            param[1].Value = Reminder_Date;
+            param[2] = new SqlParameter("@ID_ORDER", SqlDbType.Int);
+            param[2].Value = ID_ORDER;
+            dal.Excutecommand("update_SupMoney", param);
+            dal.close();
+        }
+
+
         public void Edit_Suppliers(string Sup_Name, string Sup_phone, string sup_Company_ID, string Sup_Adreess, string Sup_Notes, byte[] Sup_Photo, string Creterion,int ID)
         {
             DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
@@ -70,7 +103,48 @@ namespace Sales_Managment.BL
             dal.close();
             return dt;
         }
+        public DataTable getSup_Deservied_money()
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            DataTable dt = new DataTable();
+            dt = dal.selectData("getSup_Deservied_money", null);
+            dal.close();
+            return dt;
+        }
        
+        public DataTable get_suppPayHistory()
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            DataTable dt = new DataTable();
+            dt = dal.selectData("get_suppPayHistory", null);
+            dal.close();
+            return dt;
+        }
+        public DataTable getONESup_Deservied_money(int ID)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            DataTable dt = new DataTable();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[1];
+            param[0] = new SqlParameter("@ID", SqlDbType.Int);
+            param[0].Value = ID;
+            dt = dal.selectData("getONESup_Deservied_money", param);
+            dal.close();
+            return dt;
+        }
+    
+        public DataTable get_ONEsuppPayHistory(int ID)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            DataTable dt = new DataTable();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[1];
+            param[0] = new SqlParameter("@ID", SqlDbType.Int);
+            param[0].Value = ID;
+            dt = dal.selectData("get_ONEsuppPayHistory", param);
+            dal.close();
+            return dt;
+        }
         public void Delete_Suppliers(int ID)
         {
             DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
@@ -80,6 +154,18 @@ namespace Sales_Managment.BL
             param[0] = new SqlParameter("@ID", SqlDbType.Int);
             param[0].Value = ID;
             dal.Excutecommand("Delete_Suppliers", param);
+            dal.close();
+        }
+        
+             public void delete_supPayRecoed(int ID)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            dal.open();
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@ID", SqlDbType.Int);
+            param[0].Value = ID;
+            dal.Excutecommand("delete_supPayRecoed", param);
             dal.close();
         }
         public DataTable Get_AllSup_info()

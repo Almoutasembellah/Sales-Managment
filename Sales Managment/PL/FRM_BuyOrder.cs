@@ -17,6 +17,7 @@ namespace Sales_Managment.PL
     {
        BL.Class_ORDERS orders = new BL.Class_ORDERS();
         BL.Cls_Products products = new BL.Cls_Products();
+        BL.Cls_Suppliers suppliers = new BL.Cls_Suppliers();
         DataTable dt =new DataTable();
         void creatDataTable()
         {
@@ -84,7 +85,7 @@ namespace Sales_Managment.PL
             textInvoice_NUM.Clear();
             textinvoice_descr.Clear();
             dateInvoice.ResetText();
-            text_CUSTO_CODE.Clear();
+            text_SUP_CODE.Clear();
             textNname.Clear();
             txtSupCmpID.Clear();
             textPhone.Clear();
@@ -131,7 +132,7 @@ namespace Sales_Managment.PL
                 {
                     MessageBox.Show("هذا العميل ليس له صورة");
 
-                    text_CUSTO_CODE.Text = frm.dgvSuppliers.CurrentRow.Cells[0].Value.ToString();
+                    text_SUP_CODE.Text = frm.dgvSuppliers.CurrentRow.Cells[0].Value.ToString();
                     textNname.Text = frm.dgvSuppliers.CurrentRow.Cells[1].Value.ToString();
                     textPhone.Text = frm.dgvSuppliers.CurrentRow.Cells[2].Value.ToString();
                     txtSupCmpID.Text = frm.dgvSuppliers.CurrentRow.Cells[3].Value.ToString();
@@ -139,7 +140,7 @@ namespace Sales_Managment.PL
                     Picture_customer.Image = null;
                     return;
                 }
-                text_CUSTO_CODE.Text = frm.dgvSuppliers.CurrentRow.Cells[0].Value.ToString();
+                text_SUP_CODE.Text = frm.dgvSuppliers.CurrentRow.Cells[0].Value.ToString();
                 textNname.Text = frm.dgvSuppliers.CurrentRow.Cells[1].Value.ToString();
                 textPhone.Text = frm.dgvSuppliers.CurrentRow.Cells[2].Value.ToString();
                 txtSupCmpID.Text = frm.dgvSuppliers.CurrentRow.Cells[3].Value.ToString();
@@ -157,7 +158,11 @@ namespace Sales_Managment.PL
 
         private void FRM_BuyOrder_Load(object sender, EventArgs e)
         {
-
+            lblProductCount.Text = "0";
+            dateInvoice.Format = DateTimePickerFormat.Custom;
+            dtPayTime.Format = DateTimePickerFormat.Custom;
+            dateInvoice.CustomFormat = "dd-MM-yyyy";
+            dtPayTime.CustomFormat= "dd-MM-yyyy";
         }
 
         private void btnNewBuy_Click(object sender, EventArgs e)
@@ -178,6 +183,7 @@ namespace Sales_Managment.PL
             clearBOXES();
             clear_frm_boxes();
             btnprdSelectLIST.Enabled = true;
+            btnNew.Enabled = false;
             textInvoice_NUM.Text = orders.get_invoice_num().Rows[0][0].ToString();
         }
 
@@ -271,7 +277,7 @@ namespace Sales_Managment.PL
                 dataGridView1.DataSource = dt;
                 clearBOXES();
                 invoice_Sum();
-                lblProductCount.Text = dataGridView1.Rows.Count.ToString();
+                lblProductCount.Text = (dataGridView1.Rows.Count-1).ToString();
 
             }
         }
@@ -343,18 +349,80 @@ namespace Sales_Managment.PL
         private void rdbtnCash_CheckedChanged(object sender, EventArgs e)
         {
             dtPayTime.Enabled = false;
+            Properties.Settings.Default.CheckButton = false;
         }
 
         private void rdbtnAGEL_CheckedChanged(object sender, EventArgs e)
         {
             dtPayTime.Enabled = true;
+            Properties.Settings.Default.CheckButton = true;
         }
 
         private void btnPayInvoice_Click(object sender, EventArgs e)
         {
+           
+                decimal madfou3 = Properties.Settings.Default.Madfou3;
+                double baky = Properties.Settings.Default.Bakey;
+                Properties.Settings.Default.TOtalMatloub = Convert.ToDecimal(textInvoiceSum.Text);
+                Properties.Settings.Default.Save();
+
+               
+                    if (textInvoice_NUM.Text == String.Empty)
+                    {
+                        MessageBox.Show("يجب إدخال رقم الفاتورة ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (text_SUP_CODE.Text == String.Empty)
+                    {
+                        MessageBox.Show("يجب إدخال كود العميل ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (textinvoice_descr.Text == String.Empty)
+                    {
+                        MessageBox.Show("يجب إدخال وصف الفاتورة ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (dataGridView1.Rows.Count < 1)
+                    {
+                        MessageBox.Show("يجب إدخال منتج للفاتورة ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+              
+            }
             Frm_PayBuy frm = new Frm_PayBuy();
             frm.ShowDialog();
+            if (Properties.Settings.Default.btnStatus == "Save")
+            {
+                if (Properties.Settings.Default.SaveAndPrint == false)
+            {
+
+                    string order_date = dateInvoice.Value.ToString("dd/MM/yyyy");
+                    string PayDate = dtPayTime.Value.ToString("dd/MM/yyyy");                 
+                    orders.Add_BuyOrder(Convert.ToInt16(textInvoice_NUM.Text), textinvoice_descr.Text, order_date,
+                    Convert.ToInt16(text_SUP_CODE.Text), txtsallerName.Text, Convert.ToDecimal(textInvoiceSum.Text));
+                    suppliers.ADD_SupPayHistory(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text), madfou3, order_date);
+                    orders.ADD_Supplier_Money(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text), baky, order_date, PayDate);
+
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+                        orders.Add_Buyorder_details(dataGridView1.Rows[i].Cells[0].Value.ToString(),
+                                                Convert.ToInt32(textInvoice_NUM.Text),
+                                               Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value),
+                                                dataGridView1.Rows[i].Cells[3].Value.ToString(),
+                                              Convert.ToDouble(dataGridView1.Rows[i].Cells[6].Value),
+                                                dataGridView1.Rows[i].Cells[5].Value.ToString(),
+                                                dataGridView1.Rows[i].Cells[7].Value.ToString());
+
+
+                    }
+                    MessageBox.Show("تمت عملية الحفظ بنجاح", "عملية الحفظ ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clear_frm_boxes();
+
+                    btnNew.Enabled = true;
+                }
+            }
 
         }
     }
+
+
 }
