@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sales_Managment {
+namespace Sales_Managment.REPORTS {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Sales_Managment {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class RptOrderBuy : ReportClass {
+    public class RPTBuyInvoice : ReportClass {
         
-        public RptOrderBuy() {
+        public RPTBuyInvoice() {
         }
         
         public override string ResourceName {
             get {
-                return "RptOrderBuy.rpt";
+                return "RPTBuyInvoice.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Sales_Managment {
         
         public override string FullResourceName {
             get {
-                return "Sales_Managment.RptOrderBuy.rpt";
+                return "Sales_Managment.REPORTS.RPTBuyInvoice.rpt";
             }
             set {
                 // Do nothing
@@ -98,9 +98,9 @@ namespace Sales_Managment {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRptOrderBuy : Component, ICachedReport {
+    public class CachedRPTBuyInvoice : Component, ICachedReport {
         
-        public CachedRptOrderBuy() {
+        public CachedRPTBuyInvoice() {
         }
         
         [Browsable(false)]
@@ -137,7 +137,7 @@ namespace Sales_Managment {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            RptOrderBuy rpt = new RptOrderBuy();
+            RPTBuyInvoice rpt = new RPTBuyInvoice();
             rpt.Site = this.Site;
             return rpt;
         }

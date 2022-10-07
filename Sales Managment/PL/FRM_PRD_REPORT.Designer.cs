@@ -1,6 +1,7 @@
-﻿namespace Sales_Managment
+﻿
+namespace Sales_Managment.PL
 {
-    partial class Frm_Print
+    partial class FRM_PRD_REPORT
     {
         /// <summary>
         /// Required designer variable.
@@ -39,24 +40,18 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(729, 359);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(635, 517);
             this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // Frm_Print
+            // FRM_PRD_REPORT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 359);
+            this.ClientSize = new System.Drawing.Size(635, 517);
             this.Controls.Add(this.crystalReportViewer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.Name = "Frm_Print";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Print";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Name = "FRM_PRD_REPORT";
+            this.Text = "FRM_PRD_REPORT";
+            this.Load += new System.EventHandler(this.FRM_PRD_REPORT_Load);
             this.ResumeLayout(false);
 
         }

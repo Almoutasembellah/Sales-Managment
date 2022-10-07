@@ -60,11 +60,11 @@ namespace Sales_Managment
         {
             try {
 
-                int index = Frm_Buy.GetFormBuy.DgvBuy.SelectedRows[0].Index;
+                //int index = Frm_Buy.GetFormBuy.DgvBuy.SelectedRows[0].Index;
 
-                Frm_Buy.GetFormBuy.DgvBuy.Rows[index].Cells[2].Value = Properties.Settings.Default.Item_Qty;
-                Frm_Buy.GetFormBuy.DgvBuy.Rows[index].Cells[3].Value = Properties.Settings.Default.Item_BuyPrice;
-                Frm_Buy.GetFormBuy.DgvBuy.Rows[index].Cells[4].Value = Properties.Settings.Default.Item_Discount;
+                //Frm_Buy.GetFormBuy.DgvBuy.Rows[index].Cells[2].Value = Properties.Settings.Default.Item_Qty;
+                //Frm_Buy.GetFormBuy.DgvBuy.Rows[index].Cells[3].Value = Properties.Settings.Default.Item_BuyPrice;
+                //Frm_Buy.GetFormBuy.DgvBuy.Rows[index].Cells[4].Value = Properties.Settings.Default.Item_Discount;
 
             } catch(Exception) { }
         }

@@ -122,9 +122,9 @@ namespace Sales_Managment
             //tblRpt = db.readData("SELECT [Order_ID] as 'رقم الفاتورة',Suppliers.Sup_Name as 'اسم المورد',[Price] as 'السعر',[Order_Date] as 'تاريخ الفاتورة',[Reminder_Date] as 'تاريخ الاستحقاق' FROM [dbo].[Supplier_Money],Suppliers where Suppliers.Sup_ID =[Supplier_Money].Sup_ID and Suppliers.Sup_ID=" + id + "", "");
             try
             {
-                Frm_Print frm = new Frm_Print();
+                //Frm_Print frm = new Frm_Print();
 
-                frm.crystalReportViewer1.RefreshReport();
+                //frm.crystalReportViewer1.RefreshReport();
 
                 RptSupplierMonry rpt = new RptSupplierMonry();
 
@@ -132,12 +132,12 @@ namespace Sales_Managment
                 rpt.SetDatabaseLogon("", "", @".\SQLEXPRESS", "Sales_System");
                 rpt.SetDataSource(tblRpt);
                 rpt.SetParameterValue("ID", id);
-                frm.crystalReportViewer1.ReportSource = rpt;
+                //frm.crystalReportViewer1.ReportSource = rpt;
 
                 System.Drawing.Printing.PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
                 rpt.PrintOptions.PrinterName = printDocument.PrinterSettings.PrinterName;
-                //rpt.PrintToPrinter(1, true, 0, 0);
-                 frm.ShowDialog();
+                ////rpt.PrintToPrinter(1, true, 0, 0);
+                // frm.ShowDialog();
             }
             catch (Exception) { }
         }

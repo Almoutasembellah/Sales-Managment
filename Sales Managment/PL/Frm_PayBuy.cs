@@ -20,11 +20,13 @@ namespace Sales_Managment
         private void Frm_PayBuy_Load(object sender, EventArgs e)
         {
 
-            try {
+            try
+            {
 
                 txtMatloub.Text = (Properties.Settings.Default.TOtalMatloub).ToString();
 
-            } catch (Exception) { }
+            }
+            catch (Exception) { }
 
             txtMadfou3.Text = "0.0";
             txtBaky.Text = "0.0";
@@ -33,13 +35,15 @@ namespace Sales_Managment
 
         private void txtMadfou3_TextChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
 
-                decimal baky = Convert.ToDecimal(txtMatloub.Text )- Convert.ToDecimal(txtMadfou3.Text);
+                decimal baky = Convert.ToDecimal(txtMatloub.Text) - Convert.ToDecimal(txtMadfou3.Text);
 
-                txtBaky.Text =Math.Round( baky,2).ToString();
+                txtBaky.Text = Math.Round(baky, 2).ToString();
 
-            } catch (Exception) { }
+            }
+            catch (Exception) { }
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
@@ -54,7 +58,7 @@ namespace Sales_Managment
                     txtMadfou3.Focus();
                     return;
                 }
-                if (txtMadfou3.Text == "") { MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد"); return; }
+                if (Convert.ToInt32(txtMadfou3.Text) == 0) { MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد"); return; }
 
                 Properties.Settings.Default.Madfou3 = Convert.ToDecimal(txtMadfou3.Text);
                 Properties.Settings.Default.Bakey = Convert.ToDouble(txtBaky.Text);
@@ -72,15 +76,18 @@ namespace Sales_Managment
                     txtMadfou3.Focus();
                     return;
                 }
-                if (txtMadfou3.Text == "") { MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد");
+                if (Convert.ToInt32(txtMadfou3.Text) == 0)
+                {
+                    MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد");
 
                     txtMadfou3.Focus();
-                    return; }
+                    return;
+                }
 
                 Properties.Settings.Default.Madfou3 = Convert.ToDecimal(txtMadfou3.Text);
                 Properties.Settings.Default.Bakey = Convert.ToDouble(txtBaky.Text);
 
-               
+
 
 
                 Properties.Settings.Default.Save();
@@ -90,9 +97,9 @@ namespace Sales_Managment
         }
         private void Frm_PayBuy_KeyDown(object sender, KeyEventArgs e)
         {
-           
-            if (e.KeyCode == Keys.Enter) {
 
+            if (e.KeyCode == Keys.Enter)
+            {
                 if (txtMadfou3.Text == "") { MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد"); return; }
                 Properties.Settings.Default.SaveAndPrint = false;
                 Properties.Settings.Default.Madfou3 = Convert.ToDecimal(txtMadfou3.Text);
@@ -114,23 +121,59 @@ namespace Sales_Managment
         {
             Properties.Settings.Default.btnStatus = "return";
 
-           Close();
+            Close();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.btnStatus = "SavePrint";
-
-            if (txtMadfou3.Text == "") { MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد"); return; }
             Properties.Settings.Default.SaveAndPrint = true;
-            Properties.Settings.Default.Madfou3 = Convert.ToDecimal(txtMadfou3.Text);
-            Properties.Settings.Default.Bakey = Convert.ToDouble(txtBaky.Text);
+
+            if (Properties.Settings.Default.CheckButton == false)
+            {
+                if (Convert.ToDouble(txtBaky.Text) > 0)
+                {
+                    MessageBox.Show("يجب دفع كامل قيمة الفاتورة لإنك  اخترت طريقة الدفع كاش", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMadfou3.Focus();
+                    return;
+                }
+
+                if (Convert.ToDecimal(txtMadfou3.Text) == 0)
+                {
+                    MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد"); return;
+                }
+
+                Properties.Settings.Default.Madfou3 = Convert.ToDecimal(txtMadfou3.Text);
+                Properties.Settings.Default.Bakey = Convert.ToDouble(txtBaky.Text);
 
 
 
-            Properties.Settings.Default.Save();
+                Properties.Settings.Default.Save();
 
-            Close();
+                Close();
+            }
+            else if (Properties.Settings.Default.CheckButton == true)
+            {
+                if (Convert.ToDouble(txtBaky.Text) == 0)
+                {
+                    MessageBox.Show("لا يصح دفع كامل قيمة الفاتورة لإنك  اخترت طريقة الدفع آجل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMadfou3.Focus();
+                    return;
+                }
+                if (Convert.ToInt32(txtMadfou3.Text) == 0)
+                {
+                    MessageBox.Show("من فضلك ادخل المبلغ المدفوع", "تاكيد");
+
+                    txtMadfou3.Focus();
+                    return;
+                }
+
+                Properties.Settings.Default.Madfou3 = Convert.ToDecimal(txtMadfou3.Text);
+                Properties.Settings.Default.Bakey = Convert.ToDouble(txtBaky.Text);
+                Properties.Settings.Default.Save();
+
+                Close();
+            }
         }
     }
 }

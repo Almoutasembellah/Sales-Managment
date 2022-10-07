@@ -89,22 +89,22 @@ namespace Sales_Managment
             tblRpt = db.readData("SELECT [Order_ID] as 'رقم الفاتورة', Suppliers.Sup_Name as 'اسم المورد', Products.Pro_Name as 'اسم المنتج',[Date] as 'تاريخ الفاتورة',[Buy_Detalis].[Qty] as 'الكمية',[User_Name] as 'اسم المستخدم',[Price] as 'السعر',[Discount] as 'الخصم',[Total] as 'اجمالى الصنف',[TotalOrder] as 'الاجمالى العام',[Madfou3] as 'المدفوع',[Baky] as 'المبلغ المتبقى' FROM[dbo].[Buy_Detalis], Suppliers, Products where  Suppliers.Sup_ID =[Buy_Detalis].Sup_ID and Products.Pro_ID =[Buy_Detalis].Pro_ID and Order_ID=" + id + "", "");
             try
             {
-                Frm_Print frm = new Frm_Print();
+                //Frm_Print frm = new Frm_Print();
 
-                frm.crystalReportViewer1.RefreshReport();
+                //frm.crystalReportViewer1.RefreshReport();
 
-                RptOrderBuy rpt = new RptOrderBuy();
+                //RptOrderBuy rpt = new RptOrderBuy();
 
 
-                rpt.SetDatabaseLogon("", "", @".\SQLEXPRESS", "Sales_System");
-                rpt.SetDataSource(tblRpt);
-                rpt.SetParameterValue("ID", id);
-                frm.crystalReportViewer1.ReportSource = rpt;
+                //rpt.SetDatabaseLogon("", "", @".\SQLEXPRESS", "Sales_System");
+                //rpt.SetDataSource(tblRpt);
+                //rpt.SetParameterValue("ID", id);
+                //frm.crystalReportViewer1.ReportSource = rpt;
 
                 System.Drawing.Printing.PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
-                rpt.PrintOptions.PrinterName = printDocument.PrinterSettings.PrinterName;
+                //rpt.PrintOptions.PrinterName = printDocument.PrinterSettings.PrinterName;
                 // rpt.PrintToPrinter(1, true, 0, 0);
-                frm.ShowDialog();
+                //frm.ShowDialog();
             }
             catch (Exception) { }
         }
@@ -154,9 +154,9 @@ namespace Sales_Managment
             tblRpt = db.readData("SELECT [Order_ID] as 'رقم الفاتورة' ,Suppliers.Sup_Name as 'اسم المورد',Products.Pro_Name  as 'اسم المنتج',[Date] as 'تاريخ الفاتورة' ,[Buy_Detalis].[Qty] as 'الكمية',[Price] as 'السعر',[Discount] as 'الخصم',[Total] as 'الاجمالى',[TotalOrder] as 'اجمالى الفاتورة',[Madfou3] as 'المبلغ المدفوع',[Baky] as 'المبلغ المتبقى',[User_Name] as 'اسم المستخدم' FROM [dbo].[Buy_Detalis],Suppliers,Products where [Buy_Detalis].Sup_ID =Suppliers.Sup_ID and [Buy_Detalis].Pro_ID=Products.Pro_ID and Convert(date,Date ,105 ) between '" + date1 + "' and '" + date2 + "' ORDER BY Order_ID ASC", "");
             try
             {
-                Frm_Print frm = new Frm_Print();
+                //Frm_Print frm = new Frm_Print();
 
-                frm.crystalReportViewer1.RefreshReport();
+                //frm.crystalReportViewer1.RefreshReport();
 
                 RptBuyReport rpt = new RptBuyReport();
 
@@ -166,12 +166,12 @@ namespace Sales_Managment
 
                  rpt.SetParameterValue("From", date1);
                  rpt.SetParameterValue("To", date2);
-                 frm.crystalReportViewer1.ReportSource = rpt;
+                 //frm.crystalReportViewer1.ReportSource = rpt;
 
                 System.Drawing.Printing.PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
                 rpt.PrintOptions.PrinterName = printDocument.PrinterSettings.PrinterName;
                 // rpt.PrintToPrinter(1, true, 0, 0);
-                frm.ShowDialog();
+                /*frm.ShowDialog()*/;
             }
             catch (Exception) { }
         }

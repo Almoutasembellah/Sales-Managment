@@ -363,11 +363,11 @@ namespace Sales_Managment.PL
            
                 decimal madfou3 = Properties.Settings.Default.Madfou3;
                 double baky = Properties.Settings.Default.Bakey;
-                Properties.Settings.Default.TOtalMatloub = Convert.ToDecimal(textInvoiceSum.Text);
-                Properties.Settings.Default.Save();
+            Properties.Settings.Default.TOtalMatloub = Convert.ToDecimal(textInvoiceSum.Text);
+            Properties.Settings.Default.Save();
 
-               
-                    if (textInvoice_NUM.Text == String.Empty)
+
+            if (textInvoice_NUM.Text == String.Empty)
                     {
                         MessageBox.Show("يجب إدخال رقم الفاتورة ", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -393,14 +393,14 @@ namespace Sales_Managment.PL
             if (Properties.Settings.Default.btnStatus == "Save")
             {
                 if (Properties.Settings.Default.SaveAndPrint == false)
-            {
+                {
 
                     string order_date = dateInvoice.Value.ToString("dd/MM/yyyy");
                     string PayDate = dtPayTime.Value.ToString("dd/MM/yyyy");                 
                     orders.Add_BuyOrder(Convert.ToInt16(textInvoice_NUM.Text), textinvoice_descr.Text, order_date,
                     Convert.ToInt16(text_SUP_CODE.Text), txtsallerName.Text, Convert.ToDecimal(textInvoiceSum.Text));
                     suppliers.ADD_SupPayHistory(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text), madfou3, order_date);
-                    orders.ADD_Supplier_Money(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text), baky, order_date, PayDate);
+                    orders.ADD_Supplier_Money(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text),baky, order_date, PayDate);
 
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
@@ -419,7 +419,42 @@ namespace Sales_Managment.PL
 
                     btnNew.Enabled = true;
                 }
+             
+                }
+            else if (Properties.Settings.Default.btnStatus == "SavePrint")
+            {
+                string order_date = dateInvoice.Value.ToString("dd/MM/yyyy");
+                string PayDate = dtPayTime.Value.ToString("dd/MM/yyyy");
+                orders.Add_BuyOrder(Convert.ToInt16(textInvoice_NUM.Text), textinvoice_descr.Text, order_date,
+                Convert.ToInt16(text_SUP_CODE.Text), txtsallerName.Text, Convert.ToDecimal(textInvoiceSum.Text));
+                suppliers.ADD_SupPayHistory(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text), madfou3, order_date);
+                orders.ADD_Supplier_Money(Convert.ToInt16(textInvoice_NUM.Text), Convert.ToInt16(text_SUP_CODE.Text), baky, order_date, PayDate);
+
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    orders.Add_Buyorder_details(dataGridView1.Rows[i].Cells[0].Value.ToString(),
+                                            Convert.ToInt32(textInvoice_NUM.Text),
+                                           Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value),
+                                            dataGridView1.Rows[i].Cells[3].Value.ToString(),
+                                          Convert.ToDouble(dataGridView1.Rows[i].Cells[6].Value),
+                                            dataGridView1.Rows[i].Cells[5].Value.ToString(),
+                                            dataGridView1.Rows[i].Cells[7].Value.ToString());
+
+
+                }
+                // MessageBox.Show("تمت عملية الحفظ بنجاح", "عملية الحفظ ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                this.Cursor = Cursors.WaitCursor;
+                REPORTS.RPTBuyInvoice rpt = new REPORTS.RPTBuyInvoice();
+                FRM_PRD_REPORT frm1 = new FRM_PRD_REPORT();
+                rpt.SetParameterValue("@ID", Convert.ToInt32(textInvoice_NUM.Text));
+                frm1.crystalReportViewer1.ReportSource = rpt;
+                frm1.ShowDialog();
+                this.Cursor = Cursors.Default;
+                clear_frm_boxes();
+                btnNew.Enabled = true;
             }
+            
 
         }
     }
